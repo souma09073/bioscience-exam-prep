@@ -455,7 +455,7 @@
   <div class="meta-row">
     <span class="chip">試験 7/14（火）10:00</span>
     <span class="chip warn">練習問題 = 出題形式</span>
-    <span class="chip plain">全92問</span>
+    <span class="chip plain">全<span id="total-chip">—</span>問</span>
     <span class="chip plain">チェックは自動保存されます</span>
   </div>
 </header>
@@ -468,7 +468,7 @@
     <li><a href="#plan"><span>学習計画</span></a></li>
     <li><a href="#cram"><span>直前暗記シート</span></a></li>
     <li><a href="#l1"><span class="toc-num">01</span> 生命の分子</a></li>
-    <li><a href="#l2"><span class="toc-num">02</span> 細胞の構造</a></li>
+    <li><a href="#l2"><span class="toc-num">02</span> 細胞・感染症</a></li>
     <li><a href="#l3"><span class="toc-num">03</span> 酵素・医薬品</a></li>
     <li><a href="#l4"><span class="toc-num">04</span> 生体膜・ワクチン</a></li>
     <li><a href="#l5"><span class="toc-num">05</span> 呼吸・光合成</a></li>
@@ -547,6 +547,18 @@
         <tr><td>サリン（毒ガス）</td><td>アセチルコリンエステラーゼ</td><td>アセチルコリンが分解されず神経が麻痺</td></tr>
         <tr><td>スタチン</td><td>HMG-CoA還元酵素</td><td>血中コレステロールを下げる</td></tr>
         <tr><td>パイナップル</td><td>ブロメライン（プロテアーゼ）</td><td>肉を柔らかくする／ゼリーが固まらない</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>病原体と治療薬 — 分類できれば全問解ける</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>病原体の種類</th><th>例</th><th>治療薬</th></tr></thead>
+      <tbody>
+        <tr><td>細菌（原核生物）</td><td>結核菌、梅毒菌、百日咳菌、大腸菌、黄色ブドウ球菌</td><td><strong>抗生物質が効く</strong>（ペニシリン＝細胞壁合成阻害／ストレプトマイシン＝タンパク質合成阻害）</td></tr>
+        <tr><td>真核生物（原虫・寄生虫）</td><td>マラリア原虫、アニサキス、回虫、住血吸虫</td><td>抗生物質は<strong>効かない</strong>。キニーネ（マラリア）、イベルメクチン（寄生虫・大村智）</td></tr>
+        <tr><td>ウイルス（非生物）</td><td>コロナ、インフルエンザ、天然痘、麻疹</td><td>抗生物質は<strong>効かない</strong>。ワクチン・免疫・抗体</td></tr>
       </tbody>
     </table>
   </div>
@@ -681,13 +693,13 @@
 <section id="l2">
   <div class="sec-head">
     <p class="sec-kicker">LECTURE 02</p>
-    <h2>細胞の構造・原核生物と真核生物</h2>
-    <p class="sec-topics">原核／真核／ミトコンドリアと葉緑体の起源／抗生物質はなぜ効く・効かない</p>
+    <h2>細胞の構造・原核生物と真核生物・感染症と治療薬</h2>
+    <p class="sec-topics">原核と真核／ミトコンドリアと葉緑体の起源／抗生物質はなぜ効く・効かない／ペニシリン・キニーネ・イベルメクチン／薬剤耐性菌</p>
   </div>
 
   <div class="callout">
-    <h4>フォルダの「2回目.pdf」は別の授業の資料です</h4>
-    <p>中身は「ビジネスと情報（齋藤雅子）第2回 決済手段の進化」で、バイオサイエンスの資料ではありません。第2回のスライドは手元にない状態です。下の解答は練習問題と講義シラバスに沿って作ってあるので、これで押さえれば問題ありません（この回は暗記で完結する内容なので不利にはなりません）。心配なら、正しい第2回の資料を友人かLMSから入手してください。</p>
+    <h4>この回の一本の軸</h4>
+    <p>第2回は「細胞の構造」から入って、後半はまるごと<strong>感染症と治療薬</strong>の話です。そして全ての問題が<strong>「抗生物質は細菌（原核生物）にしか効かない」</strong>という一本の原則から答えられます。病原体が<strong>細菌なのか・真核生物なのか・ウイルスなのか</strong>を見分ける、それだけです。</p>
   </div>
 
   <h3>練習問題</h3>
@@ -695,65 +707,172 @@
   <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
     <p class="q-text"><span class="n">1</span>細胞構造を基準に生物を大きく2つに分類する場合の2つの名称を答えよ。また、ヒト、シイタケ、パン酵母、乳酸菌、大腸菌、ホウレンソウを分類せよ。</p>
     <details><summary>答えを見る</summary><div class="ans">
-      <p><strong>原核生物</strong>と<strong>真核生物</strong>。区別は<strong>核膜に包まれた核を持つかどうか</strong>（原核生物は核膜・細胞小器官を持たない）。</p>
+      <p><strong>原核生物</strong>と<strong>真核生物</strong>。区別は<strong>核膜に包まれた核を持つかどうか</strong>。原核生物は核を持たず（DNAは核様体としてむき出し）、ミトコンドリアなどの<strong>細胞小器官も持たない</strong>。</p>
       <ul>
         <li><strong>真核生物</strong>：ヒト、シイタケ、パン酵母、ホウレンソウ</li>
         <li><strong>原核生物</strong>：乳酸菌、大腸菌</li>
       </ul>
-      <span class="tip"><b>ひっかけ</b> シイタケ（菌類）とパン酵母（真菌）は「菌」の字に釣られて原核と答えがち。<strong>カビ・キノコ・酵母は真核</strong>。原核なのは細菌（バクテリア）だけ。</span>
+      <span class="tip"><b>ひっかけ</b> シイタケ（菌類）とパン酵母（真菌）は「菌」の字に釣られて原核と答えがち。<strong>カビ・キノコ・酵母は真核</strong>。原核なのは<strong>細菌（バクテリア）だけ</strong>。第6回の発酵（コウジカビ＝真核／乳酸菌＝原核）にも直結する。</span>
     </div></details>
   </div></div></div>
 
   <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
     <p class="q-text"><span class="n">2</span>ミトコンドリアおよび葉緑体の機能と起源をそれぞれ述べよ。</p>
     <details><summary>答えを見る</summary><div class="ans">
-      <p><strong>ミトコンドリア</strong>：機能は<strong>細胞呼吸</strong>（有機物と酸素からATPを産生）。起源は、原始的な真核細胞に取り込まれた<strong>好気性細菌</strong>が共生したもの（細胞内共生説）。</p>
-      <p><strong>葉緑体</strong>：機能は<strong>光合成</strong>（光エネルギーでCO₂と水から糖と酸素を合成）。起源は、取り込まれた<strong>シアノバクテリア（光合成細菌）</strong>の共生。</p>
-      <span class="tip"><b>根拠も言えると強い</b> どちらも二重膜を持ち、独自のDNAとリボソームを持ち、細胞内で分裂して増える。</span>
+      <p><strong>ミトコンドリア</strong>：機能は<strong>細胞呼吸</strong>（有機物と酸素からATPを産生）。起源は、原始的な真核細胞に取り込まれた<strong>好気性細菌</strong>が共生したもの（<strong>細胞内共生説</strong>）。約21億年前。</p>
+      <p><strong>葉緑体</strong>：機能は<strong>光合成</strong>（光エネルギーでCO₂と水から糖と酸素を合成）。起源は、取り込まれた<strong>シアノバクテリア（光合成細菌）</strong>の共生。シアノバクテリアの出現は約35億年前。</p>
+      <span class="tip"><b>根拠も言えると強い</b> どちらも二重膜を持ち、<strong>独自のDNAとリボソームを持ち</strong>、細胞内で分裂して増える＝もとは独立した細菌だった証拠。</span>
     </div></details>
   </div></div></div>
 
   <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
     <p class="q-text"><span class="n">3</span>原核生物と真核生物の細胞の違いの中で、特に抗生物質の作用点として利用されている違いを2点あげよ。</p>
     <details><summary>答えを見る</summary><div class="ans">
+      <p>講義では、抗生物質の標的として<strong>細胞壁合成阻害・タンパク質合成阻害・DNA/RNA合成阻害・細胞膜障害</strong>が挙げられている。このうち2点を書けばよい：</p>
       <ul>
-        <li><strong>リボソームの違い</strong>：細菌は70Sリボソーム、真核生物（ヒト）は80Sリボソーム。細菌のリボソームだけに結合する薬（ストレプトマイシン等）が作れる。</li>
-        <li><strong>細胞壁の有無</strong>：細菌は<strong>ペプチドグリカン</strong>の細胞壁を持つが、動物細胞は細胞壁を持たない。細胞壁合成を阻害する薬（ペニシリン等）は細菌にだけ効く。</li>
+        <li><strong>細胞壁の有無</strong>：細菌は<strong>ペプチドグリカン</strong>でできた細胞壁を持つが、<strong>ヒトを含む真核生物（動物細胞）は持たない</strong>。→ 細胞壁の合成を阻害する<strong>ペニシリン</strong>が効く。</li>
+        <li><strong>リボソームの違い</strong>：細菌は<strong>70Sリボソーム</strong>、真核生物は<strong>80Sリボソーム</strong>で構造が異なる。→ 細菌のリボソームだけに結合してタンパク質合成を阻害する<strong>ストレプトマイシン</strong>が効く。</li>
       </ul>
+      <span class="tip"><b>キーワードは「選択毒性」</b> 細菌だけが持ち、ヒトが持たない構造を叩くから、ヒトには毒性が出ない。この一語を答案に入れること。</span>
     </div></details>
   </div></div></div>
 
   <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
-    <p class="q-text"><span class="n">4</span>ストレプトマイシンが、人に毒性が無く結核菌の増殖のみに効果がある理由を説明せよ。</p>
+    <p class="q-text"><span class="n">4</span>結核の特効薬であるストレプトマイシンが、人に毒性が無く結核菌の増殖のみに効果がある理由を説明せよ。</p>
     <details><summary>答えを見る</summary><div class="ans">
-      <p>ストレプトマイシンは<strong>細菌（原核生物）のリボソーム（70S）</strong>に特異的に結合してタンパク質合成を阻害する。ヒトのリボソームは<strong>80S</strong>で構造が異なり結合しないため、結核菌の増殖だけを止め、ヒトの細胞には作用しない（<strong>選択毒性</strong>）。</p>
+      <p>結核菌（<em>Mycobacterium tuberculosis</em>）は<strong>原核生物（細菌）</strong>である。ストレプトマイシンは<strong>細菌のリボソーム（70S）に特異的に結合してタンパク質合成を阻害する</strong>抗生物質で、細菌の増殖を止める。ヒトの細胞のリボソームは<strong>80S</strong>で構造が異なり結合しないため、ヒトには作用しない。この<strong>選択毒性</strong>により、人体に害を与えずに結核菌だけを叩ける。</p>
+      <span class="tip"><b>現在は単剤では使わない</b> 耐性菌が出るため、イソニアジド・リファンピシン・ピラジナミド・エタンブトール（またはストレプトマイシン）の<strong>4剤併用</strong>が標準。予防には<strong>BCG</strong>（ウシ型結核菌を弱毒化した<strong>生ワクチン</strong>）。第4回のワクチン分類とつながる。</span>
     </div></details>
   </div></div></div>
 
   <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
     <p class="q-text"><span class="n">5</span>ウイルス感染症に抗生物質が効かない理由を説明せよ。</p>
     <details><summary>答えを見る</summary><div class="ans">
-      <p>抗生物質は<strong>細菌の細胞壁やリボソーム</strong>など、細菌に固有の構造を標的にする。ウイルスは<strong>細胞を持たず</strong>、細胞壁もリボソームも持たない（宿主細胞のリボソームを借りてタンパク質を作る）ため、抗生物質が作用する標的そのものが存在しないから。</p>
+      <p>抗生物質は<strong>細菌（原核細胞）に固有の構造</strong>——細胞壁やリボソーム——を標的にして作用する。ウイルスは<strong>そもそも細胞を持たない非生物</strong>で、細胞壁もリボソームも自前の代謝系も持たず、<strong>ヒトの細胞に侵入して宿主の仕組みを借りて増殖する</strong>。したがって抗生物質が作用する標的そのものが存在しないため効かない。</p>
+      <p>ウイルス感染症への対策は、<strong>ワクチンによる免疫（抗体）の獲得</strong>が中心となる。</p>
     </div></details>
   </div></div></div>
 
   <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
-    <p class="q-text"><span class="n">6</span>マラリアに抗生物質が効かない理由を説明せよ。</p>
+    <p class="q-text"><span class="n">6</span>マラリアに抗生物質が効かない理由を説明せよ。<span class="tag">小テストでも出題</span></p>
     <details><summary>答えを見る</summary><div class="ans">
-      <p>マラリアの原因は細菌ではなく<strong>マラリア原虫</strong>という<strong>真核生物</strong>だから。抗生物質は原核生物（細菌）の構造を標的とするため、ヒトと同じ真核細胞の構造を持つ原虫には効かない。治療には<strong>キニーネ</strong>などの抗マラリア薬を使う。</p>
-      <span class="tip"><b>この回の主題</b> 「◯◯に抗生物質が効かない理由」は3連続で問われている（ウイルス／マラリア）。<strong>抗生物質＝細菌にしか効かない</strong>という一本の軸で全部説明できる。</span>
+      <p>マラリアの病原体は細菌ではなく<strong>マラリア原虫（<em>Plasmodium</em>）</strong>という<strong>真核生物</strong>だから。マラリア原虫は<strong>ヒトと同じ真核細胞の構造</strong>を持ち、抗生物質が標的とする細菌特有の構造（ペプチドグリカンの細胞壁、70Sリボソーム）を持たないため、抗生物質は効かない。</p>
+      <p>治療には抗マラリア薬の<strong>キニーネ</strong>を用いる（キナノキの樹皮に含まれる）。マラリアは<strong>ハマダラカ</strong>によって媒介される。</p>
+      <span class="tip"><b>豆知識として出るかも</b> キニーネは苦いので炭酸水（トニック）で割って飲まれた。これが<strong>ジントニック</strong>の起源。</span>
     </div></details>
   </div></div></div>
 
   <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
     <p class="q-text"><span class="n">7</span>天然痘、マラリア、梅毒、結核、エイズ、痛風、糖尿病のうち、原核生物（細菌）の感染が原因の病気を全てあげよ。</p>
     <details><summary>答えを見る</summary><div class="ans">
-      <p><strong>梅毒</strong>（梅毒トレポネーマ）と<strong>結核</strong>（結核菌）。</p>
+      <p>答え：<strong>梅毒</strong>（梅毒トレポネーマ）と<strong>結核</strong>（結核菌）。</p>
       <ul>
-        <li>天然痘・エイズ＝<strong>ウイルス</strong></li>
-        <li>マラリア＝<strong>原虫（真核生物）</strong></li>
-        <li>痛風・糖尿病＝<strong>感染症ではない</strong>（代謝性疾患）</li>
+        <li>天然痘・エイズ ＝ <strong>ウイルス</strong></li>
+        <li>マラリア ＝ <strong>マラリア原虫（真核生物）</strong></li>
+        <li>痛風・糖尿病 ＝ <strong>感染症ではない</strong>（代謝性疾患）</li>
       </ul>
+      <span class="tip"><b>梅毒は今まさに増加中</b> 講義でも東京都の患者報告数のグラフが出ていた。細菌なので<strong>ペニシリンが100%効く</strong>。</span>
+    </div></details>
+  </div></div></div>
+
+  <h3>病原体と治療薬 — この表が第2回の心臓部</h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">+</span>病原体を3つに分類し、それぞれの治療薬を言えるか？</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>① 細菌（原核生物）→ 抗生物質が効く</strong><br>
+      結核菌・梅毒菌・百日咳菌・大腸菌・ペスト菌・黄色ブドウ球菌<br>
+      薬：<strong>ペニシリン、ストレプトマイシン</strong>（他にアンピシリン、カナマイシン、リファンピシン）</p>
+      <p><strong>② 真核生物（原生生物・寄生虫）→ 抗生物質は効かない</strong><br>
+      マラリア原虫、住血吸虫、アニサキス、回虫、回旋糸状虫、ダニ（疥癬）<br>
+      薬：<strong>キニーネ</strong>（抗マラリア薬）、<strong>イベルメクチン</strong>（抗寄生虫薬）</p>
+      <p><strong>③ ウイルス（非生物）→ 抗生物質は効かない</strong><br>
+      新型コロナ、インフルエンザ、天然痘、麻疹（はしか）<br>
+      対策：<strong>ワクチン・免疫・抗体</strong></p>
+      <span class="tip"><b>イベルメクチンは日本人の発見</b> <strong>大村智</strong>博士が静岡県のゴルフ場近くの土壌から採取した放線菌が産生する物質から開発。無脊椎動物の神経・筋細胞のCl⁻チャネルに結合して寄生虫を麻痺させ死滅させる。オンコセルカ症（河川盲目症）の治療でノーベル賞。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">+</span>ペニシリンはどのように細菌を殺すか。誰が発見したか。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>β-ラクタム系抗生物質</strong>で、細菌の細胞壁の主成分<strong>ペプチドグリカンを合成する酵素（PBP）に結合してその活性を阻害</strong>する。細胞壁が作れなくなった細菌は、細胞壁が薄くなって増殖が抑えられ（静菌作用）、さらに<strong>浸透圧の差で外液が流入して溶菌し死滅する</strong>（殺菌作用）。</p>
+      <p>ペプチドグリカンの細胞壁は<strong>細菌には必須だがヒトには存在しない</strong>ため、<strong>選択毒性が高くヒトへの毒性は低い</strong>。</p>
+      <p>発見者：<strong>アレクサンダー・フレミング</strong>（1928年）。培地に生えた<strong>アオカビ（<em>Penicillium</em>）</strong>の周りだけ黄色ブドウ球菌が生えていないことに気づいたのがきっかけ。ノーベル生理学・医学賞。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">+</span>薬剤耐性菌とは何か。講義で挙がった例は？</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>抗生物質（抗菌薬）が効かなくなった細菌</strong>のこと。抗生物質を使い続けるうちに、それに耐える性質を持った菌が生き残って増えることで生じる。</p>
+      <p>講義で挙がった例：</p>
+      <ul>
+        <li><strong>百日咳菌</strong>：大流行した患者から分離された菌の<strong>約8割</strong>が、従来のマクロライド系抗菌薬が効かない耐性菌だった</li>
+        <li><strong>MRSA（メチシリン耐性黄色ブドウ球菌）</strong>：複数の薬剤に耐性を示す</li>
+      </ul>
+      <span class="tip"><b>結核の4剤併用の理由</b> 単剤だと耐性菌が出やすいので、複数の薬を組み合わせて使う。</span>
+    </div></details>
+  </div></div></div>
+
+  <h3>細胞の構造 — 前半のポイント</h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">+</span>細菌・菌類・植物・動物の細胞で、核／ミトコンドリア／葉緑体／液胞／細胞壁の有無は？</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <div class="tablewrap"><table>
+        <thead><tr><th></th><th>細菌</th><th>菌類</th><th>植物</th><th>動物</th></tr></thead>
+        <tbody>
+          <tr><td>核</td><td>×</td><td>○</td><td>○</td><td>○</td></tr>
+          <tr><td>ミトコンドリア</td><td>×</td><td>○</td><td>○</td><td>○</td></tr>
+          <tr><td>葉緑体</td><td>×</td><td>×</td><td>○</td><td>×</td></tr>
+          <tr><td>発達した液胞</td><td>×</td><td>×</td><td>○</td><td>×</td></tr>
+          <tr><td>細胞壁</td><td>○</td><td>○</td><td>○</td><td>×</td></tr>
+          <tr><td>細胞膜</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
+        </tbody>
+      </table></div>
+      <span class="tip"><b>覚え方</b> <strong>細胞膜だけが全生物に共通</strong>。葉緑体と液胞は植物だけ。<strong>動物だけが細胞壁を持たない</strong>（＝だからペニシリンは動物に効かない）。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">+</span>植物の細胞壁の組成は？ 流動モザイクモデルとは？</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>植物の細胞壁</strong>：<strong>セルロース 50%</strong>、ヘミセルロース 25%、<strong>リグニン 25%</strong>。</p>
+      <p><strong>流動モザイクモデル</strong>：細胞膜は<strong>リン脂質の脂質二重層</strong>と、その中を<strong>自由に動き回る膜タンパク質</strong>からなるという構造モデル。膜は柔軟なので、<strong>膜だけでは細胞の形を決められない</strong>（形は細胞骨格が決める）。</p>
+      <span class="tip"><b>つながり</b> 細胞壁＝セルロース は第1回（細胞壁の高分子）と第13回（プロトプラスト＝セルラーゼで細胞壁を分解）に直結。流動モザイクモデルは第4回の主題。</span>
+    </div></details>
+  </div></div></div>
+
+  <h3>第2回 小テスト <span class="tag">実際に出題された</span></h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">小1</span>大腸菌、麹菌、酵母、結核菌、マラリア原虫、アニサキス、ヒト を原核生物と真核生物に分類せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <ul>
+        <li><strong>原核生物</strong>：大腸菌、結核菌</li>
+        <li><strong>真核生物</strong>：麹菌、酵母、マラリア原虫、アニサキス、ヒト</li>
+      </ul>
+      <span class="tip"><b>原核なのは「〜菌」でも細菌だけ</b> 大腸<u>菌</u>・結核<u>菌</u>は細菌。麹<u>菌</u>はカビ＝真核。マラリア原虫（原生生物）とアニサキス（線虫＝寄生虫）も真核。<strong>この2つが真核だからこそ抗生物質が効かない</strong>。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">小2</span>「コロナ」「インフルエンザ」「梅毒」「百日咳」「結核」の病原体を、ウイルスと細菌に分類せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <ul>
+        <li><strong>ウイルス</strong>：コロナ（SARS-CoV-2）、インフルエンザ</li>
+        <li><strong>細菌</strong>：梅毒（梅毒トレポネーマ）、百日咳（百日咳菌）、結核（結核菌）</li>
+      </ul>
+      <span class="tip"><b>だから治療も分かれる</b> 細菌の3つ（梅毒・百日咳・結核）には<strong>抗生物質が効く</strong>。ウイルスの2つには効かず、<strong>ワクチン</strong>で予防する。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">小3</span>マラリアに抗生物質が効かない理由を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>→ 上の<strong>練習問題6</strong>と同じ。マラリアの病原体は<strong>マラリア原虫＝真核生物</strong>であり、抗生物質が標的とする細菌（原核生物）特有の構造を持たないため。治療にはキニーネを用いる。</p>
+      <span class="tip"><b>練習問題と小テストの両方に出ている＝本番でも出る可能性が最も高い問題</b>。この1問だけは絶対に落とさないこと。</span>
     </div></details>
   </div></div></div>
 </section>
@@ -1695,8 +1814,8 @@ His His Met Trp Thr Cys Ile 終止</code></span>
 </section>
 
 <footer>
-  <p>資料：第1回〜第13回の講義スライドおよび「練習問題0703」より作成。各問の解答は講義資料の記述に基づいています。<br>
-  「2回目.pdf」は他授業（ビジネスと情報）の資料が混入しており、第2回の解答のみ練習問題とシラバスから補完しています。</p>
+  <p>資料：第1回〜第13回の講義スライド全13回分および「練習問題0703」より作成。各問の解答は講義資料の記述に基づいています。<br>
+  第2回は「第2回.pdf」（全52ページ）を反映済み。</p>
 </footer>
 
 </main>
@@ -1720,6 +1839,8 @@ His His Met Trp Thr Cys Ile 終止</code></span>
       totalEls[0].innerHTML = '<span id="done">0</span>/' + boxes.length;
       doneEl = document.getElementById("done");
     }
+    var chip = document.getElementById("total-chip");
+    if (chip) chip.textContent = boxes.length;
 
     function load() {
       var saved;
