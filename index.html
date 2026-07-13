@@ -129,13 +129,16 @@
   }
   @media (max-width: 900px) {
     .cols { grid-template-columns: 1fr; gap: 0; }
-    nav.toc { position: static; margin-bottom: 32px; }
   }
 
   nav.toc {
     position: sticky;
     top: 20px;
     font-size: 14px;
+  }
+  /* 1カラムになったら追従をやめる（この宣言は上の sticky より後に置くこと） */
+  @media (max-width: 900px) {
+    nav.toc { position: static; top: auto; margin-bottom: 32px; }
   }
   .toc-title {
     font-size: 11px;
@@ -407,8 +410,15 @@
     .meta-row { gap: 7px; }
     .chip { font-size: 12px; padding: 5px 11px; }
 
-    /* 目次は畳んで、進捗を先に見せる */
-    nav.toc { display: flex; flex-direction: column; gap: 14px; margin-bottom: 26px; }
+    /* 目次は画面に固定せず、普通に流して先頭に置くだけ */
+    nav.toc {
+      position: static;
+      top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
     .progress-box { order: -1; margin-top: 0; }
     .toc-title { display: none; }
     .toc-list {
