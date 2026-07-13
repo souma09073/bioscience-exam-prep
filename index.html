@@ -1,0 +1,1685 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>*{box-sizing:border-box}body{margin:0}</style>
+</head>
+<body>
+<title>バイオサイエンス入門 最終テスト対策</title>
+
+<style>
+  :root {
+    --paper: #F7F9F8;
+    --card: #FFFFFF;
+    --ink: #16211E;
+    --ink-soft: #4A5B56;
+    --ink-faint: #7C8C87;
+    --rule: #DCE4E1;
+    --accent: #1F6F5C;
+    --accent-soft: #E4EFEB;
+    --amber: #B4531F;
+    --amber-soft: #F7E9E0;
+    --shadow: 0 1px 2px rgba(22,33,30,.05), 0 8px 24px -16px rgba(22,33,30,.18);
+    --mincho: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "MS PMincho", serif;
+    --gothic: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", system-ui, sans-serif;
+    --mono: "SFMono-Regular", "Consolas", "Menlo", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #101715;
+      --card: #18211E;
+      --ink: #E8EEEB;
+      --ink-soft: #A8B7B2;
+      --ink-faint: #74847F;
+      --rule: #2A3733;
+      --accent: #5CBFA3;
+      --accent-soft: #1D2E29;
+      --amber: #E08A57;
+      --amber-soft: #2D2119;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -16px rgba(0,0,0,.6);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #101715; --card: #18211E; --ink: #E8EEEB; --ink-soft: #A8B7B2;
+    --ink-faint: #74847F; --rule: #2A3733; --accent: #5CBFA3; --accent-soft: #1D2E29;
+    --amber: #E08A57; --amber-soft: #2D2119;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px -16px rgba(0,0,0,.6);
+  }
+  :root[data-theme="light"] {
+    --paper: #F7F9F8; --card: #FFFFFF; --ink: #16211E; --ink-soft: #4A5B56;
+    --ink-faint: #7C8C87; --rule: #DCE4E1; --accent: #1F6F5C; --accent-soft: #E4EFEB;
+    --amber: #B4531F; --amber-soft: #F7E9E0;
+    --shadow: 0 1px 2px rgba(22,33,30,.05), 0 8px 24px -16px rgba(22,33,30,.18);
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--gothic);
+    font-size: 16px;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  * { box-sizing: border-box; }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px 96px;
+  }
+
+  /* ---------- header ---------- */
+  header {
+    padding: 56px 0 32px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 36px;
+  }
+  .eyebrow {
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: var(--mincho);
+    font-size: clamp(30px, 5vw, 46px);
+    line-height: 1.3;
+    font-weight: 600;
+    margin: 0 0 18px;
+    text-wrap: balance;
+    letter-spacing: .01em;
+  }
+  .lede {
+    max-width: 62ch;
+    color: var(--ink-soft);
+    margin: 0 0 26px;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 13px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border: 1px solid transparent;
+  }
+  .chip.warn { background: var(--amber-soft); color: var(--amber); }
+  .chip.plain { background: transparent; color: var(--ink-faint); border-color: var(--rule); font-weight: 500; }
+
+  /* ---------- layout ---------- */
+  .cols {
+    display: grid;
+    grid-template-columns: 232px minmax(0, 1fr);
+    gap: 44px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .cols { grid-template-columns: 1fr; gap: 0; }
+    nav.toc { position: static; margin-bottom: 32px; }
+  }
+
+  nav.toc {
+    position: sticky;
+    top: 20px;
+    font-size: 14px;
+  }
+  .toc-title {
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 700;
+    margin: 0 0 12px;
+  }
+  .toc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1px; }
+  .toc-list a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 6px 9px;
+    border-radius: 6px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    line-height: 1.4;
+  }
+  .toc-list a:hover, .toc-list a:focus-visible { background: var(--accent-soft); color: var(--accent); outline: none; }
+  .toc-list a:focus-visible { box-shadow: 0 0 0 2px var(--accent); }
+  .toc-num { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+  .toc-count { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); font-variant-numeric: tabular-nums; }
+
+  .progress-box {
+    margin-top: 20px;
+    padding: 14px;
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    background: var(--card);
+  }
+  .progress-label { font-size: 12px; color: var(--ink-faint); display: flex; justify-content: space-between; margin-bottom: 8px; }
+  .progress-label b { font-family: var(--mono); color: var(--accent); font-variant-numeric: tabular-nums; }
+  .bar { height: 5px; background: var(--rule); border-radius: 3px; overflow: hidden; }
+  .bar span { display: block; height: 100%; width: 0%; background: var(--accent); transition: width .25s ease; }
+  .reset {
+    margin-top: 12px; width: 100%; padding: 6px; font: inherit; font-size: 12px;
+    background: transparent; color: var(--ink-faint); border: 1px solid var(--rule);
+    border-radius: 6px; cursor: pointer;
+  }
+  .reset:hover { color: var(--ink); border-color: var(--ink-faint); }
+
+  /* ---------- sections ---------- */
+  section { scroll-margin-top: 20px; margin-bottom: 52px; }
+  .sec-head { border-bottom: 2px solid var(--ink); padding-bottom: 10px; margin-bottom: 22px; }
+  .sec-kicker {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: .08em;
+    margin: 0 0 4px;
+  }
+  h2 {
+    font-family: var(--mincho);
+    font-size: clamp(21px, 3vw, 26px);
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+    text-wrap: balance;
+  }
+  .sec-topics { margin: 6px 0 0; font-size: 13px; color: var(--ink-faint); }
+
+  h3 {
+    font-family: var(--mincho);
+    font-size: 18px;
+    font-weight: 600;
+    margin: 34px 0 14px;
+    padding-left: 11px;
+    border-left: 3px solid var(--accent);
+    line-height: 1.5;
+  }
+
+  /* ---------- question cards ---------- */
+  .q {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .q-top { display: flex; gap: 12px; padding: 15px 17px; align-items: flex-start; }
+  .q-check {
+    appearance: none; -webkit-appearance: none;
+    flex: 0 0 auto;
+    width: 19px; height: 19px; margin: 4px 0 0;
+    border: 1.5px solid var(--rule);
+    border-radius: 5px;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    transition: background .15s, border-color .15s;
+  }
+  .q-check:hover { border-color: var(--accent); }
+  .q-check:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .q-check:checked { background: var(--accent); border-color: var(--accent); }
+  .q-check:checked::after {
+    content: "";
+    position: absolute; left: 5px; top: 1.5px;
+    width: 5px; height: 10px;
+    border: solid #fff; border-width: 0 2px 2px 0;
+    transform: rotate(43deg);
+  }
+  .q-body { flex: 1 1 auto; min-width: 0; }
+  .q-text { margin: 0; font-weight: 500; }
+  .q-text .n {
+    font-family: var(--mono);
+    color: var(--ink-faint);
+    font-weight: 700;
+    font-size: 13px;
+    margin-right: 7px;
+    font-variant-numeric: tabular-nums;
+  }
+  .q:has(.q-check:checked) { opacity: .58; }
+  .q:has(.q-check:checked) .q-text { text-decoration: line-through; text-decoration-color: var(--ink-faint); }
+
+  details { margin-top: 10px; }
+  details > summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 12px;
+    border-radius: 999px;
+    user-select: none;
+  }
+  details > summary::-webkit-details-marker { display: none; }
+  details > summary::before { content: "▸"; font-size: 10px; transition: transform .15s; }
+  details[open] > summary::before { transform: rotate(90deg); }
+  details > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .ans {
+    margin-top: 11px;
+    padding: 13px 15px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+  .ans p { margin: 0 0 9px; }
+  .ans p:last-child { margin-bottom: 0; }
+  .ans strong { color: var(--ink); font-weight: 700; }
+  .ans ul { margin: 0 0 9px; padding-left: 1.15em; }
+  .ans li { margin-bottom: 3px; }
+  .ans code, code {
+    font-family: var(--mono);
+    font-size: .92em;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 1px 5px;
+    border-radius: 4px;
+    letter-spacing: .02em;
+  }
+  .seq { display: block; overflow-x: auto; padding: 9px 11px; margin: 8px 0; background: var(--accent-soft); border-radius: 6px; }
+  .seq code { background: transparent; padding: 0; color: var(--ink); white-space: pre; display: block; line-height: 1.9; }
+  .tip {
+    display: block;
+    margin-top: 9px;
+    padding-left: 11px;
+    border-left: 2px solid var(--amber);
+    font-size: 13.5px;
+    color: var(--ink-faint);
+  }
+  .tip b { color: var(--amber); }
+
+  .tag {
+    display: inline-block;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    padding: 1px 7px;
+    border-radius: 4px;
+    background: var(--amber-soft);
+    color: var(--amber);
+    margin-left: 8px;
+    vertical-align: 2px;
+    white-space: nowrap;
+  }
+
+  /* ---------- callout ---------- */
+  .callout {
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--amber);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 24px;
+    background: var(--card);
+  }
+  .callout h4 { margin: 0 0 7px; font-size: 15px; font-family: var(--mincho); color: var(--amber); }
+  .callout p { margin: 0; font-size: 14.5px; color: var(--ink-soft); }
+
+  /* ---------- plan ---------- */
+  .plan { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+  .slot {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: var(--shadow);
+  }
+  .slot .when {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: .04em;
+    font-variant-numeric: tabular-nums;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .slot h4 { margin: 0 0 6px; font-size: 15.5px; font-family: var(--mincho); }
+  .slot p { margin: 0; font-size: 13.5px; color: var(--ink-soft); line-height: 1.7; }
+
+  /* ---------- cram table ---------- */
+  .tablewrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: 10px; background: var(--card); box-shadow: var(--shadow); }
+  table { border-collapse: collapse; width: 100%; font-size: 14.5px; min-width: 460px; }
+  th, td { text-align: left; padding: 10px 15px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  thead th {
+    font-size: 11px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--ink-faint); font-weight: 700; background: var(--paper);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+  footer {
+    margin-top: 60px; padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-size: 13px; color: var(--ink-faint);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Final Exam Prep · 第1回–第13回</p>
+  <h1>バイオサイエンス入門<br>最終テスト対策</h1>
+  <p class="lede">配布された「練習問題0703」は全13回をカバーする記述式の問題集で、これがそのまま試験の骨格とみて間違いありません。ここに<strong>練習問題の全問と模範解答</strong>、さらに<strong>各回の最後にあった小テスト</strong>を、出題単位ごとに並べています。まず問題を隠したまま自分で答えを言ってみて、答え合わせしてください。</p>
+  <div class="meta-row">
+    <span class="chip">試験 7/14（火）10:00</span>
+    <span class="chip warn">練習問題 = 出題形式</span>
+    <span class="chip plain">全92問</span>
+    <span class="chip plain">チェックは自動保存されます</span>
+  </div>
+</header>
+
+<div class="cols">
+
+<nav class="toc">
+  <p class="toc-title">Contents</p>
+  <ul class="toc-list">
+    <li><a href="#plan"><span>学習計画</span></a></li>
+    <li><a href="#cram"><span>直前暗記シート</span></a></li>
+    <li><a href="#l1"><span class="toc-num">01</span> 生命の分子</a></li>
+    <li><a href="#l2"><span class="toc-num">02</span> 細胞の構造</a></li>
+    <li><a href="#l3"><span class="toc-num">03</span> 酵素・医薬品</a></li>
+    <li><a href="#l4"><span class="toc-num">04</span> 生体膜・ワクチン</a></li>
+    <li><a href="#l5"><span class="toc-num">05</span> 呼吸・光合成</a></li>
+    <li><a href="#l6"><span class="toc-num">06</span> 発酵</a></li>
+    <li><a href="#l7"><span class="toc-num">07</span> 遺伝・DNA</a></li>
+    <li><a href="#l8"><span class="toc-num">08</span> 生殖・クローン</a></li>
+    <li><a href="#l9"><span class="toc-num">09</span> 遺伝子発現</a></li>
+    <li><a href="#l10"><span class="toc-num">10</span> 遺伝子工学</a></li>
+    <li><a href="#l11"><span class="toc-num">11</span> PCR</a></li>
+    <li><a href="#l12"><span class="toc-num">12</span> 遺伝子組換え生物</a></li>
+    <li><a href="#l13"><span class="toc-num">13</span> 植物バイオ</a></li>
+  </ul>
+  <div class="progress-box">
+    <div class="progress-label"><span>解いた問題</span><b><span id="done">0</span>/92</b></div>
+    <div class="bar"><span id="bar"></span></div>
+    <button class="reset" id="reset">チェックを全て消す</button>
+  </div>
+</nav>
+
+<main>
+
+<!-- ============ PLAN ============ -->
+<section id="plan">
+  <div class="sec-head">
+    <p class="sec-kicker">STRATEGY</p>
+    <h2>今夜から明日10時までの動き方</h2>
+    <p class="sec-topics">ゼロからでも間に合います。ただし「資料を読み返す」のは捨ててください。時間の使い方は下の順で。</p>
+  </div>
+
+  <div class="callout">
+    <h4>最優先はこの1点</h4>
+    <p>練習問題92問を、<strong>口に出して答えられるか</strong>だけを繰り返す。スライドを最初から読むのは時間対効果が最悪です。答えを読む → 隠して言う → 言えなければチェックを外して翌朝もう一度。これだけで合格圏に届きます。</p>
+  </div>
+
+  <div class="plan">
+    <div class="slot">
+      <span class="when">1周目 · 約3時間</span>
+      <h4>全13回を答え見ながら通読</h4>
+      <p>理解しようとせず、まず「何が問われるか」を頭に入れる。各問の答えを開いて読み、言えそうなものにチェック。分からない問題は放置して進む。</p>
+    </div>
+    <div class="slot">
+      <span class="when">2周目 · 約2時間</span>
+      <h4>チェックが付いていない問題だけ</h4>
+      <p>ここが本番。答えを隠して口頭で答える。特に第5・7・9・10回（呼吸／DNA／翻訳／クローニング）は配点が厚くなりやすい領域。</p>
+    </div>
+    <div class="slot">
+      <span class="when">寝る前 · 20分</span>
+      <h4>暗記シートだけ流し読み</h4>
+      <p>酵素と基質、ワクチン分類、コドン、微生物名など「単語で答える系」は寝る直前が効く。睡眠は削らない方が得点は上がります。</p>
+    </div>
+    <div class="slot">
+      <span class="when">当日 8:00–9:45</span>
+      <h4>計算・配列問題を手で書く</h4>
+      <p>相補鎖を書く問題（第7回6）と mRNA 翻訳（第9回7）は手を動かさないと本番で詰まります。最後に暗記シートをもう一周。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CRAM ============ -->
+<section id="cram">
+  <div class="sec-head">
+    <p class="sec-kicker">CHEAT SHEET</p>
+    <h2>直前暗記シート</h2>
+    <p class="sec-topics">「単語で答えさせる」問題はここから出ます。試験前に見るならここだけでも。</p>
+  </div>
+
+  <h3>酵素・毒・薬 — 「何に効くか」がセット</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>物質</th><th>作用点</th><th>結果</th></tr></thead>
+      <tbody>
+        <tr><td>ロキソニン／イブ</td><td>シクロオキシゲナーゼ</td><td>アラキドン酸→プロスタグランジンを阻害。解熱鎮痛</td></tr>
+        <tr><td>アレグラ／ザイザル</td><td>ヒスタミン受容体（H1）</td><td>花粉症・鼻水を緩和</td></tr>
+        <tr><td>ガスター</td><td>ヒスタミン受容体（H2）</td><td>胃酸分泌を抑制</td></tr>
+        <tr><td>テトロドトキシン（フグ毒）</td><td>電位依存性ナトリウムチャネル</td><td>神経伝達が止まりしびれ・麻痺・呼吸困難</td></tr>
+        <tr><td>サリン（毒ガス）</td><td>アセチルコリンエステラーゼ</td><td>アセチルコリンが分解されず神経が麻痺</td></tr>
+        <tr><td>スタチン</td><td>HMG-CoA還元酵素</td><td>血中コレステロールを下げる</td></tr>
+        <tr><td>パイナップル</td><td>ブロメライン（プロテアーゼ）</td><td>肉を柔らかくする／ゼリーが固まらない</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>コドン — 覚えるのはこの3つだけ</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>種類</th><th>配列</th><th>備考</th></tr></thead>
+      <tbody>
+        <tr><td>開始コドン</td><td class="num">AUG</td><td>メチオニン(Met)を指定。全タンパク質のN末はMet</td></tr>
+        <tr><td>終止コドン</td><td class="num">UAA / UAG / UGA</td><td>アミノ酸を指定しない</td></tr>
+        <tr><td>ロイシン(Leu)</td><td class="num">UUA UUG CUU CUC CUA CUG</td><td>6個。アルギニンも6個(CGN, AGA, AGG)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>数字 — 出たら即答したい</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>項目</th><th>数</th></tr></thead>
+      <tbody>
+        <tr><td>タンパク質を構成するアミノ酸</td><td class="num">20種類（すべてL型）</td></tr>
+        <tr><td>好気呼吸のATP（グルコース1分子）</td><td class="num">38個（解糖2＋クエン酸回路2＋呼吸鎖34）</td></tr>
+        <tr><td>嫌気呼吸（発酵）のATP</td><td class="num">2個</td></tr>
+        <tr><td>A–T の水素結合</td><td class="num">2本</td></tr>
+        <tr><td>G–C の水素結合</td><td class="num">3本</td></tr>
+        <tr><td>ヒトの染色体数</td><td class="num">46本（44＋性染色体2）</td></tr>
+        <tr><td>制限酵素の認識配列</td><td class="num">6塩基対（回文配列）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>微生物と発酵食品</h3>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>微生物</th><th>核</th><th>反応・食品</th></tr></thead>
+      <tbody>
+        <tr><td>コウジカビ（麹菌）</td><td>真核生物</td><td>アミラーゼでデンプン→ブドウ糖（糖化）。日本酒・味噌・甘酒</td></tr>
+        <tr><td>酵母</td><td>真核生物</td><td>アルコール発酵でブドウ糖→エタノール＋CO₂。日本酒・ビール・ワイン・パン</td></tr>
+        <tr><td>乳酸菌</td><td>原核生物</td><td>乳酸発酵でブドウ糖→乳酸。ヨーグルト・チーズ・漬物・味噌</td></tr>
+        <tr><td>醤油麹カビ</td><td>真核生物</td><td>プロテアーゼで大豆タンパク質→アミノ酸。醤油</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ L1 ============ -->
+<section id="l1">
+  <div class="sec-head">
+    <p class="sec-kicker">LECTURE 01</p>
+    <h2>生物（生命）とは？ 生命の分子・生命の起源</h2>
+    <p class="sec-topics">ウイルス／4大高分子／アミノ酸／惑星リュウグウ</p>
+  </div>
+
+  <h3>練習問題</h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">1</span>ウイルスは、生物 or 非生物どちらですか。その理由も答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>非生物</strong>。生物の条件は「細胞を基本単位とすること」「自己複製（生殖）すること」「代謝によりATPを産生すること」だが、ウイルスは<strong>細胞を持たず</strong>、自力で代謝もATP産生もできず、宿主細胞に感染してその仕組みを借りないと増殖できないため。</p>
+      <span class="tip"><b>用語注意</b> ウイルスは「病原菌」ではなく<strong>病原体</strong>と呼ぶ。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">2</span>生物の持つ共通した3つの特徴を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <ul>
+        <li><strong>細胞が基本単位</strong>である（生体膜で囲まれた細胞からなる）</li>
+        <li><strong>自己複製（生殖）</strong>する — 遺伝情報を子に伝え、自分と似た個体をつくる</li>
+        <li><strong>代謝</strong>を行い、エネルギー物質<strong>ATP</strong>を産生する</li>
+      </ul>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">3</span>細胞を構成する主要な（高）分子を4つ挙げ、それぞれの主な役割について説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <ul>
+        <li><strong>炭水化物（糖・多糖）</strong>：エネルギー源（デンプン、グリコーゲン）、細胞壁の成分（セルロース）</li>
+        <li><strong>脂質</strong>：生体膜（細胞膜）の構成成分、エネルギーの貯蔵</li>
+        <li><strong>タンパク質</strong>：細胞の構造をつくる、酵素として代謝を担う</li>
+        <li><strong>核酸（DNA・RNA）</strong>：遺伝情報の保持と発現</li>
+      </ul>
+      <span class="tip"><b>頻出</b> 第1回小テストでもそのまま出題済み。単量体もセットで：糖→単糖、脂質→グリセリン＋脂肪酸、タンパク質→アミノ酸、核酸→ヌクレオチド。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">4</span>脂質(Lipid)は、細胞のどの部分の構成成分となるか答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>生体膜（細胞膜）</strong>。特に<strong>リン脂質</strong>が親水性の頭部と疎水性の尾部を持つ両親媒性分子で、水中で<strong>脂質二重層</strong>をつくる。核膜・ミトコンドリア膜など細胞小器官の膜も同じ。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">5</span>細胞壁を構成する主な高分子名を答えよ。また、その高分子を構成する分子名を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>高分子＝<strong>セルロース</strong>（多糖）。構成する分子＝<strong>グルコース（ブドウ糖）</strong>。βグルコースが<code>β-1,4結合</code>で直鎖状に重合したもの。</p>
+      <span class="tip"><b>対比</b> 同じグルコースのポリマーでも、α-1,4結合＝デンプン（消化できる）、β-1,4結合＝セルロース（ヒトは消化できない＝食物繊維）。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">6</span>タンパク質を構成するアミノ酸は何種類か。また、その中の5種類について日本語とアルファベット3文字で答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>20種類</strong>（すべてL型アミノ酸）。</p>
+      <p>例：グリシン <code>Gly</code>／アラニン <code>Ala</code>／ロイシン <code>Leu</code>／メチオニン <code>Met</code>／リシン <code>Lys</code></p>
+      <span class="tip"><b>言いやすい5つで固定を</b> 他にセリン Ser、バリン Val、システイン Cys、ヒスチジン His、チロシン Tyr。書ければ何でもよいので、5つだけ確実に。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">7</span>DNA および RNA の正式名称と、細胞内での機能を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>DNA</strong>＝デオキシリボ核酸（Deoxyribonucleic acid）。遺伝情報の<strong>保存</strong>を担う遺伝子の本体。二重らせんの2本鎖。</p>
+      <p><strong>RNA</strong>＝リボ核酸（Ribonucleic acid）。DNAの遺伝情報を写し取り、<strong>タンパク質合成</strong>にはたらく。1本鎖。</p>
+      <span class="tip"><b>糖の違いも聞かれる</b> DNA＝デオキシリボース／RNA＝リボース。塩基は DNA が A・T・G・C、RNA は T のかわりに <strong>U（ウラシル）</strong>。</span>
+    </div></details>
+  </div></div></div>
+
+  <h3>第1回 小テスト <span class="tag">実際に出題された</span></h3>
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">小1</span>生命に必須な（高）分子を4つあげよ。／タンパク質を構成するアミノ酸は何種類か。／DNAの正式名称と、DNAに含まれる糖の名称を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>炭水化物・脂質・タンパク質・核酸。／<strong>20種類</strong>。／デオキシリボ核酸、糖は<strong>デオキシリボース</strong>。</p>
+    </div></details>
+  </div></div></div>
+</section>
+
+<!-- ============ L2 ============ -->
+<section id="l2">
+  <div class="sec-head">
+    <p class="sec-kicker">LECTURE 02</p>
+    <h2>細胞の構造・原核生物と真核生物</h2>
+    <p class="sec-topics">原核／真核／ミトコンドリアと葉緑体の起源／抗生物質はなぜ効く・効かない</p>
+  </div>
+
+  <div class="callout">
+    <h4>フォルダの「2回目.pdf」は別の授業の資料です</h4>
+    <p>中身は「ビジネスと情報（齋藤雅子）第2回 決済手段の進化」で、バイオサイエンスの資料ではありません。第2回のスライドは手元にない状態です。下の解答は練習問題と講義シラバスに沿って作ってあるので、これで押さえれば問題ありません（この回は暗記で完結する内容なので不利にはなりません）。心配なら、正しい第2回の資料を友人かLMSから入手してください。</p>
+  </div>
+
+  <h3>練習問題</h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">1</span>細胞構造を基準に生物を大きく2つに分類する場合の2つの名称を答えよ。また、ヒト、シイタケ、パン酵母、乳酸菌、大腸菌、ホウレンソウを分類せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>原核生物</strong>と<strong>真核生物</strong>。区別は<strong>核膜に包まれた核を持つかどうか</strong>（原核生物は核膜・細胞小器官を持たない）。</p>
+      <ul>
+        <li><strong>真核生物</strong>：ヒト、シイタケ、パン酵母、ホウレンソウ</li>
+        <li><strong>原核生物</strong>：乳酸菌、大腸菌</li>
+      </ul>
+      <span class="tip"><b>ひっかけ</b> シイタケ（菌類）とパン酵母（真菌）は「菌」の字に釣られて原核と答えがち。<strong>カビ・キノコ・酵母は真核</strong>。原核なのは細菌（バクテリア）だけ。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">2</span>ミトコンドリアおよび葉緑体の機能と起源をそれぞれ述べよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>ミトコンドリア</strong>：機能は<strong>細胞呼吸</strong>（有機物と酸素からATPを産生）。起源は、原始的な真核細胞に取り込まれた<strong>好気性細菌</strong>が共生したもの（細胞内共生説）。</p>
+      <p><strong>葉緑体</strong>：機能は<strong>光合成</strong>（光エネルギーでCO₂と水から糖と酸素を合成）。起源は、取り込まれた<strong>シアノバクテリア（光合成細菌）</strong>の共生。</p>
+      <span class="tip"><b>根拠も言えると強い</b> どちらも二重膜を持ち、独自のDNAとリボソームを持ち、細胞内で分裂して増える。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">3</span>原核生物と真核生物の細胞の違いの中で、特に抗生物質の作用点として利用されている違いを2点あげよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <ul>
+        <li><strong>リボソームの違い</strong>：細菌は70Sリボソーム、真核生物（ヒト）は80Sリボソーム。細菌のリボソームだけに結合する薬（ストレプトマイシン等）が作れる。</li>
+        <li><strong>細胞壁の有無</strong>：細菌は<strong>ペプチドグリカン</strong>の細胞壁を持つが、動物細胞は細胞壁を持たない。細胞壁合成を阻害する薬（ペニシリン等）は細菌にだけ効く。</li>
+      </ul>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">4</span>ストレプトマイシンが、人に毒性が無く結核菌の増殖のみに効果がある理由を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>ストレプトマイシンは<strong>細菌（原核生物）のリボソーム（70S）</strong>に特異的に結合してタンパク質合成を阻害する。ヒトのリボソームは<strong>80S</strong>で構造が異なり結合しないため、結核菌の増殖だけを止め、ヒトの細胞には作用しない（<strong>選択毒性</strong>）。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">5</span>ウイルス感染症に抗生物質が効かない理由を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>抗生物質は<strong>細菌の細胞壁やリボソーム</strong>など、細菌に固有の構造を標的にする。ウイルスは<strong>細胞を持たず</strong>、細胞壁もリボソームも持たない（宿主細胞のリボソームを借りてタンパク質を作る）ため、抗生物質が作用する標的そのものが存在しないから。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">6</span>マラリアに抗生物質が効かない理由を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>マラリアの原因は細菌ではなく<strong>マラリア原虫</strong>という<strong>真核生物</strong>だから。抗生物質は原核生物（細菌）の構造を標的とするため、ヒトと同じ真核細胞の構造を持つ原虫には効かない。治療には<strong>キニーネ</strong>などの抗マラリア薬を使う。</p>
+      <span class="tip"><b>この回の主題</b> 「◯◯に抗生物質が効かない理由」は3連続で問われている（ウイルス／マラリア）。<strong>抗生物質＝細菌にしか効かない</strong>という一本の軸で全部説明できる。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">7</span>天然痘、マラリア、梅毒、結核、エイズ、痛風、糖尿病のうち、原核生物（細菌）の感染が原因の病気を全てあげよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>梅毒</strong>（梅毒トレポネーマ）と<strong>結核</strong>（結核菌）。</p>
+      <ul>
+        <li>天然痘・エイズ＝<strong>ウイルス</strong></li>
+        <li>マラリア＝<strong>原虫（真核生物）</strong></li>
+        <li>痛風・糖尿病＝<strong>感染症ではない</strong>（代謝性疾患）</li>
+      </ul>
+    </div></details>
+  </div></div></div>
+</section>
+
+<!-- ============ L3 ============ -->
+<section id="l3">
+  <div class="sec-head">
+    <p class="sec-kicker">LECTURE 03</p>
+    <h2>細胞の機能・代謝・酵素反応と医薬品</h2>
+    <p class="sec-topics">同化と異化／基質特異性／阻害剤としての薬と毒</p>
+  </div>
+
+  <h3>練習問題</h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">1</span>代謝、および同化と異化を簡潔に説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>代謝</strong>：生体内で起こる化学反応の全体。酵素の触媒作用によって進む。</p>
+      <p><strong>同化</strong>：外から取り込んだ物質やエネルギーを使って、体に必要な複雑な物質を<strong>合成</strong>する反応（例：光合成、タンパク質合成）。エネルギーを消費する。</p>
+      <p><strong>異化</strong>：有機物を<strong>分解</strong>してエネルギー（ATP）を取り出す反応（例：細胞呼吸、発酵）。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">2</span>生活に利用されている酵素と、酵素が入った製品をあげ、その製品の中での酵素のはたらきを説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>例：<strong>プロテアーゼ（タンパク質分解酵素）入りの洗剤（バイオ洗剤）</strong>。血液・食べこぼしなど<strong>タンパク質の汚れを分解</strong>して水に溶けやすくし、落ちやすくする。</p>
+      <p>他の例：消化剤に含まれる<strong>パパイン</strong>（タンパク質の消化を助ける）、<strong>アミラーゼ</strong>入りの消化薬（デンプンを分解）。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">3</span>ロキソニンやイブなどの解熱鎮痛薬が痛みを緩和する機構を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>痛み・発熱・炎症は体内で作られる<strong>プロスタグランジン</strong>によって引き起こされる。プロスタグランジンは<strong>アラキドン酸</strong>から<strong>シクロオキシゲナーゼ</strong>という酵素の反応で作られる。ロキソニン（ロキソプロフェン）は<strong>シクロオキシゲナーゼを特異的に阻害</strong>し、プロスタグランジンの産生を抑えることで痛み・発熱・炎症を抑える。</p>
+      <span class="tip"><b>流れで覚える</b> アラキドン酸 →〈シクロオキシゲナーゼ〉→ プロスタグランジン → 痛み。ロキソニンは真ん中の酵素を止める。小テストで穴埋めとして出題済み。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">4</span>アレグラやザイザルなどのアレルギー専用鼻炎薬は、ある物質の受容体に結合する。この受容体を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>ヒスタミン受容体</strong>（H1受容体）。アレグラ等は<strong>抗ヒスタミン薬</strong>で、ヒスタミンの代わりに受容体に結合してヒスタミンの作用を遮断し、鼻水などのアレルギー症状を抑える。</p>
+      <span class="tip"><b>セットで</b> 胃腸薬「ガスター」は<strong>H2受容体</strong>をブロックして胃酸分泌を抑える（H2ブロッカー）。ヒスタミンと受容体の関係も「カギとカギ穴」。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">5</span>フグに含まれる毒の名称と、この毒が作用する酵素名と症状を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>毒＝<strong>テトロドトキシン</strong>。作用点＝<strong>電位依存性ナトリウムチャネル</strong>（Na⁺チャネル）。これを阻害すると神経細胞に<strong>活動電位が発生できなくなり、神経伝達が遮断される</strong>。症状は口や手足のしびれ、運動麻痺、重症では<strong>呼吸筋の麻痺による呼吸困難・死亡</strong>。</p>
+      <span class="tip"><b>設問の言葉に注意</b> 問題文は「作用する酵素名」と書いているが、正しくはチャネル（膜タンパク質）。小テストでも選択肢は「ナトリウムチャネル」だった。<strong>ナトリウムポンプと書かないこと</strong>。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">6</span>アミラーゼの基質と反応物をあげよ。また、アミラーゼが発酵食品の生産に使われている例を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>基質＝<strong>デンプン（多糖）</strong>、反応物（生成物）＝<strong>ブドウ糖（グルコース）・麦芽糖</strong>。</p>
+      <p>例：<strong>日本酒</strong>の製造では、<strong>コウジカビ</strong>が分泌するアミラーゼが米のデンプンをブドウ糖に分解（糖化）し、そのブドウ糖を酵母がアルコール発酵に使う。<strong>ビール</strong>では大麦を発芽させた<strong>麦芽</strong>のアミラーゼが胚乳のデンプンを糖に変える。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">7</span>お肉をパイナップルと一緒に調理すると、肉が柔らかくなる理由を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>パイナップルは<strong>ブロメライン（ブロメリン）</strong>という<strong>プロテアーゼ（タンパク質分解酵素）</strong>を含む。この酵素が肉のタンパク質（繊維やそれを包む膜）を部分的に分解するため、肉がもろく柔らかくなる。</p>
+      <span class="tip"><b>同じ理屈の応用問題</b> 生のパイナップルを入れるとゼリー（ゼラチン＝タンパク質）が固まらないのも同じ理由。加熱して酵素を失活させるか、寒天（多糖類）を使えば固まる。他の果物のプロテアーゼ：パパイヤ＝パパイン、メロン＝ククミシン、キウイ＝アクチニジン。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">8</span>毒ガス・サリンに構造がよく似た生体物質を答えよ。また、その生体物質のはたらきを答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>アセチルコリン</strong>（神経伝達物質）。</p>
+      <p>はたらき：骨格筋・内臓筋の受容体に結合して<strong>筋肉の収縮を促進</strong>する。また自律神経のうち<strong>副交感神経</strong>を刺激し、脈拍を遅くしたり唾液の産生を促す。</p>
+      <p>サリンはアセチルコリンに似た構造をもち、アセチルコリンを分解する酵素<strong>アセチルコリンエステラーゼ</strong>の活性部位に<strong>不可逆的に結合</strong>して失活させる。その結果アセチルコリンが分解されずに溜まり、<strong>神経伝達が麻痺</strong>する。</p>
+    </div></details>
+  </div></div></div>
+
+  <h3>第3回 小テスト <span class="tag">実際に出題された</span></h3>
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">小1</span>ロキソニンは「ア」から「イ」が生産される反応を阻害する。ア・イは？（アラキドン酸／プロスタグランジン／ヒスタミン／グルタミン酸／GABA）</p>
+    <details><summary>答えを見る</summary><div class="ans"><p>ア＝<strong>アラキドン酸</strong>、イ＝<strong>プロスタグランジン</strong>。</p></div></details>
+  </div></div></div>
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">小2</span>アレグラやザイザルが結合する受容体の物質「ウ」は？／パイナップルの酵素は？／テトロドトキシンが阻害するのは？／サリンに似た生体物質は？</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>ウ＝<strong>ヒスタミン</strong>／<strong>プロテアーゼ</strong>／<strong>ナトリウムチャネル</strong>／<strong>アセチルコリン</strong>。</p>
+    </div></details>
+  </div></div></div>
+</section>
+
+<!-- ============ L4 ============ -->
+<section id="l4">
+  <div class="sec-head">
+    <p class="sec-kicker">LECTURE 04</p>
+    <h2>生体膜・膜輸送・コロナウイルスとワクチン</h2>
+    <p class="sec-topics">脂質二重層／選択的透過性／能動輸送／mRNAワクチン</p>
+  </div>
+
+  <h3>練習問題</h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">1</span>脂質2重層の構造を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>生体膜の主成分である<strong>リン脂質</strong>は、リン酸を含む<strong>親水性の頭部</strong>と、脂肪酸からなる<strong>疎水性の尾部</strong>を併せ持つ（<strong>両親媒性</strong>）。水中では疎水性の尾部どうしが内側で向かい合い、親水性の頭部が外側の水に面するように並んで<strong>二層のシート（脂質二重層）</strong>をつくる。この中に<strong>膜タンパク質</strong>が埋まっており、膜内を自由に動く（<strong>流動モザイクモデル</strong>）。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">2</span>生体膜が有する選択透過性について説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>生体膜は物質を無差別に通すのではなく、<strong>通す物質の種類・量・方向を選んで調節できる</strong>性質を持つ。</p>
+      <ul>
+        <li>脂質二重層は、<strong>疎水性の分子（ステロイドホルモンなど）は通す</strong>が、<strong>極性分子（イオン・ブドウ糖・アミノ酸・水）や大分子（タンパク質・核酸）は通さない</strong>。</li>
+        <li>通れない極性分子は、<strong>膜タンパク質</strong>（チャネル・輸送担体・ポンプ・共輸送体）が特異的に選んで通す。</li>
+      </ul>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">3</span>ナトリウムイオンの濃度が細胞外よりも細胞内で低く保たれている機構を、ナトリウムポンプ、ATP、能動輸送の語句を用いて説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>細胞膜にある<strong>ナトリウムポンプ</strong>（Na⁺ポンプ／Na⁺-K⁺ポンプ）が、<strong>ATP</strong>を分解して得たエネルギーを使い、Na⁺を<strong>濃度勾配に逆らって</strong>細胞内から細胞外へ汲み出している。このような濃度勾配に逆らう輸送を<strong>能動輸送</strong>という。この働きにより、細胞内のNa⁺濃度は細胞外より低く保たれる。</p>
+      <span class="tip"><b>対比で覚える</b> 受動輸送＝高濃度→低濃度、エネルギー不要（チャネル・輸送担体）。能動輸送＝低濃度→高濃度、ATPが必要（ポンプ）。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">4</span>エキソサイトーシスとエンドサイトーシスを説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>どちらも<strong>タンパク質や多糖など大分子</strong>を膜を横切って運ぶ<strong>小胞輸送</strong>。</p>
+      <p><strong>エンドサイトーシス</strong>：細胞外の物質を細胞膜が包み込み、輸送小胞として<strong>細胞内に取り込む</strong>（例：白血球の食作用、ウイルスの侵入）。</p>
+      <p><strong>エキソサイトーシス</strong>：輸送小胞が細胞膜と融合し、中の物質を<strong>細胞外へ放出する</strong>（例：唾液腺・消化腺などの分泌）。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">5</span>新型コロナウイルスに対するmRNAワクチンについて、mRNAが細胞に導入されるしくみを説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>mRNAは<strong>脂質の膜（脂質ナノ粒子）</strong>に包まれている。この脂質膜が細胞膜と同じ<strong>脂質二重層</strong>でできているため、<strong>エンドサイトーシス</strong>によって細胞に取り込まれ、さらに小胞の膜と<strong>膜融合</strong>することで、中のmRNAが細胞質に放出される。放出されたmRNAはリボソームで<strong>翻訳</strong>され、ウイルスのスパイクタンパク質が作られる。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">6</span>ワクチンが病気を予防するしくみを説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>ワクチンは、病原体の一部（抗原）や弱毒化・不活化した病原体をあらかじめ体内に入れることで、実際に感染していないのに<strong>免疫反応を起こさせる</strong>。その結果、その抗原に対する<strong>中和抗体</strong>が作られ、また<strong>免疫記憶（記憶細胞）</strong>が成立する。後に本物の病原体が侵入したときに素早く大量の抗体が作られて排除されるため、発症や重症化を防げる。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">7</span>mRNAワクチンのmRNAは脂質の膜に包まれている。この脂質の膜の役割を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <ul>
+        <li>mRNAは体内で<strong>分解されやすい</strong>ため、脂質膜が<strong>mRNAを分解から保護</strong>する。</li>
+        <li>mRNAは大きな極性分子で単独では細胞膜を通過できないが、脂質膜に包むことで細胞膜と<strong>融合・エンドサイトーシス</strong>でき、<strong>mRNAを細胞内に送り込む運び屋</strong>となる。</li>
+      </ul>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">8</span>新型コロナ（ファイザー）、新型コロナ（モデルナ）、新型コロナ（武田・ノババックス）、インフルエンザ、BCG をワクチンの種類に分類せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <ul>
+        <li><strong>mRNAワクチン</strong>：新型コロナ（ファイザー）、新型コロナ（モデルナ）</li>
+        <li><strong>組換えタンパク質ワクチン</strong>：新型コロナ（武田・ノババックス）</li>
+        <li><strong>不活化ワクチン</strong>：インフルエンザ</li>
+        <li><strong>生ワクチン</strong>：BCG（結核）</li>
+      </ul>
+      <span class="tip"><b>小テストで出題済み・そのまま出る可能性が高い</b> この5つの対応はそのまま暗記。</span>
+    </div></details>
+  </div></div></div>
+</section>
+
+<!-- ============ L5 ============ -->
+<section id="l5">
+  <div class="sec-head">
+    <p class="sec-kicker">LECTURE 05</p>
+    <h2>細胞呼吸・光合成・独立栄養と従属栄養</h2>
+    <p class="sec-topics">ATP／解糖・クエン酸回路・電子伝達系／明反応と暗反応</p>
+  </div>
+
+  <h3>練習問題</h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">1</span>独立栄養生物と従属栄養生物の定義を答えよ。また、ヒトおよびイネはどちらに属するか答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>独立栄養生物</strong>：光合成などにより、<strong>無機物（CO₂・水）から有機物を自分で合成できる</strong>生物。→ <strong>イネ</strong>（植物）</p>
+      <p><strong>従属栄養生物</strong>：自分で有機物を合成できず、<strong>他の生物が作った有機物を摂取して消費する</strong>生物。→ <strong>ヒト</strong>（動物）</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">2</span>生体のエネルギー分子の名称（略称と正式名称）を答えよ。また、その分子がエネルギーを放出する時の反応を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>ATP</strong>＝<strong>アデノシン三リン酸</strong>（糖・リン酸・塩基からなる）。</p>
+      <p>エネルギー放出の反応：<span class="seq"><code>ATP → ADP ＋ リン酸 ＋ エネルギー</code></span>末端の<strong>高エネルギーリン酸結合</strong>が切れる（加水分解）ときにエネルギーが放出される。逆にADP＋リン酸からATPを合成するときはエネルギーが蓄えられる。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">3</span>細胞呼吸を構成する3つの反応系の名称を記せ。また、それらの反応がおこる細胞の場所もしくは細胞小器官を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <ul>
+        <li><strong>解糖（解糖系）</strong> → <strong>細胞（質）基質</strong>。好気・嫌気の両方で起こる</li>
+        <li><strong>クエン酸回路（TCA回路）</strong> → <strong>ミトコンドリアのマトリックス</strong></li>
+        <li><strong>呼吸鎖（電子伝達系）</strong> → <strong>ミトコンドリアの内膜（クリステ膜）</strong></li>
+      </ul>
+      <span class="tip"><b>ATPの数もセットで</b> 解糖2個＋クエン酸回路2個＋呼吸鎖34個＝<strong>計38個</strong>（グルコース1分子あたり、好気呼吸）。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">4</span>細胞呼吸においてATPが最も大量に生成する反応が起こる細胞小器官の名前と、その反応を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>細胞小器官＝<strong>ミトコンドリア</strong>（内膜＝クリステ膜）。反応＝<strong>呼吸鎖（電子伝達系）</strong>で、ここで<strong>34個</strong>のATPが作られる。</p>
+      <p>しくみ（<strong>化学浸透説</strong>、2段階）：</p>
+      <ul>
+        <li>① 解糖とクエン酸回路で生じた<strong>還元型水素（NADH・FADH₂）</strong>を、内膜の複合体が順に酸化する。この過程でマトリックスの<strong>H⁺が膜間部へ汲み出され、H⁺の濃度勾配ができる</strong>。最終的に水素と酸素が結合して<strong>水</strong>ができる。</li>
+        <li>② H⁺が濃度勾配に従って<strong>ATP合成酵素</strong>の中を通ってマトリックスに戻るのと共役して、ADP＋リン酸から<strong>ATPが合成される</strong>（<strong>酸化的リン酸化</strong>）。</li>
+      </ul>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">5</span>光合成とはどのような反応か、次の6語を用いて説明せよ：水分子、二酸化炭素、酸素、糖、ATP、NADPH</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>光合成は、葉緑体で光エネルギーを利用して<strong>二酸化炭素</strong>と<strong>水分子</strong>から<strong>糖</strong>（有機物）を合成する反応で、2段階からなる。</p>
+      <p><strong>明反応</strong>（チラコイド膜）：クロロフィルが光を吸収して電子を放出し、電子伝達によりH⁺の濃度勾配ができて<strong>ATP</strong>が合成される（光リン酸化）。同時に<strong>水分子</strong>が分解されて<strong>酸素</strong>が放出され、NADP⁺が電子と水素を受け取って<strong>NADPH</strong>ができる。</p>
+      <p><strong>暗反応（炭素固定反応・カルビン回路）</strong>（ストロマ）：明反応でできた<strong>ATP</strong>と<strong>NADPH</strong>をエネルギー・還元力として使い、<strong>二酸化炭素</strong>を固定して<strong>糖</strong>（グルコース、デンプン）を合成する。</p>
+      <span class="tip"><b>反応式</b> <code>光エネルギー + 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂</code>。炭酸固定を担う酵素は<strong>ルビスコ（RuBisCO）</strong>。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">6</span>古代の光合成産物で、現代社会で利用されている物質を一つあげ、その用途を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>化石燃料（石油・石炭・天然ガス）</strong>。石油は1〜2億年前に海底に堆積した<strong>藻類の遺体</strong>が、石炭は古代の植物が変化してできたもので、いずれも古代の光合成産物。</p>
+      <p>用途：<strong>燃料（発電・自動車・暖房）</strong>、および<strong>プラスチックや化学製品の原料</strong>。</p>
+    </div></details>
+  </div></div></div>
+</section>
+
+<!-- ============ L6 ============ -->
+<section id="l6">
+  <div class="sec-head">
+    <p class="sec-kicker">LECTURE 06</p>
+    <h2>発酵・食品とバイオテクノロジー</h2>
+    <p class="sec-topics">乳酸発酵とアルコール発酵／日本酒・ビール・ワイン</p>
+  </div>
+
+  <h3>練習問題</h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">1</span>解糖系は、ブドウ糖（グルコース）が〔　〕まで分解される反応である。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>ピルビン酸</strong>。</p>
+      <p>グルコース1分子が2分子のピルビン酸に分解され、<strong>2個のATP</strong>と<strong>4個の還元型水素[H]（2NADH）</strong>ができる。細胞基質にある10個の酵素による反応で、<strong>好気呼吸でも嫌気呼吸でも共通</strong>。好気条件ではこの後クエン酸回路へ、嫌気条件では発酵へ進む。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">2</span>乳酸発酵を利用した食品と、代表的な微生物名を答えよ。また、その微生物は原核生物か真核生物か。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>食品＝<strong>ヨーグルト、チーズ、漬物、味噌・醤油</strong>など。微生物＝<strong>乳酸菌</strong>（ブルガリア菌、ビフィズス菌など）。乳酸菌は<strong>原核生物</strong>（細菌）。</p>
+      <p>反応：<code>C₆H₁₂O₆ → 2C₃H₆O₃（乳酸）＋ 2ATP</code></p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">3</span>アルコール発酵を利用した食品と、代表的な微生物名を答えよ。また、その微生物は原核生物か真核生物か。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>食品＝<strong>日本酒、ビール、ワイン、パン</strong>など。微生物＝<strong>酵母</strong>（<em>Saccharomyces cerevisiae</em>）。酵母は<strong>真核生物</strong>。</p>
+      <p>反応：<code>C₆H₁₂O₆ → 2C₂H₅OH（エタノール）＋ 2CO₂ ＋ 2ATP</code></p>
+      <span class="tip"><b>ここが差がつく</b> 乳酸菌＝原核、酵母とコウジカビ＝真核。この振り分けが小テストでも狙われている。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">4</span>日本酒を作る時に使う2種類の微生物の名前と、それぞれが触媒する反応を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <ul>
+        <li><strong>コウジカビ（麹菌、<em>Aspergillus oryzae</em>）</strong>：<strong>アミラーゼ</strong>を分泌し、米の<strong>デンプンをブドウ糖（グルコース）に分解する（糖化）</strong>。</li>
+        <li><strong>酵母</strong>：そのブドウ糖から<strong>アルコール発酵（嫌気呼吸）</strong>により<strong>エタノールと二酸化炭素</strong>を生産する。</li>
+      </ul>
+      <span class="tip"><b>なぜ2種類必要か</b> 米はデンプン（ブドウ糖の重合物）で、酵母はデンプンを直接発酵できない。まず糖に分解する必要がある。この「糖化→発酵」の2段構えが日本酒の本質。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">5</span>ビールの原材料が「大麦」ではなく「麦芽」と記載されているのはなぜか。大麦と麦芽の違いを説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>麦芽</strong>とは<strong>大麦の種子を発芽させたもの</strong>。大麦の種子が発芽する際に<strong>アミラーゼが作られ</strong>、胚乳のデンプンをブドウ糖（麦芽糖）に分解する。</p>
+      <p>ビールを作るには、酵母が発酵できる<strong>糖</strong>が必要だが、大麦の種子のままではデンプンのままで発酵できない。発芽させて<strong>アミラーゼを含んだ麦芽</strong>にすることで初めて糖化が起こる。だから原材料は「大麦」ではなく「麦芽」と表示される。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">6</span>日本酒、ビール、ワインの中で、最も簡単に作れる飲料はどれか。理由とともに答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>ワイン</strong>。</p>
+      <p>理由：ブドウの果汁には<strong>はじめからブドウ糖（果糖）が含まれている</strong>ため、日本酒やビールのように<strong>デンプンを糖に分解する「糖化」の工程が不要</strong>。さらに<strong>ブドウの表皮に天然の酵母が付着している</strong>ので、果実を潰して置いておくだけで<strong>自然にアルコール発酵が起こる</strong>。</p>
+      <span class="tip"><b>対比</b> 日本酒＝米（デンプン）→コウジカビで糖化→酵母。ビール＝大麦（デンプン）→発芽させ麦芽のアミラーゼで糖化→酵母。ワイン＝糖化不要。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">7</span>米を原料とする甘酒が甘い理由を、次の語を用いて説明せよ：麹菌、デンプン、ブドウ糖、アミラーゼ</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>甘酒では、<strong>麹菌（コウジカビ）</strong>が分泌する<strong>アミラーゼ</strong>が、米の<strong>デンプン</strong>を分解して<strong>ブドウ糖</strong>にする。生じたブドウ糖が蓄積するため甘くなる。（酵母によるアルコール発酵を行わないので、糖がエタノールに変換されずに残る。）</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">8</span>醤油を作る時に用いられる代表的な微生物名を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>醤油麹カビ（<em>Aspergillus sojae</em>）</strong>。<strong>プロテアーゼ</strong>を分泌して大豆のタンパク質を<strong>アミノ酸</strong>に分解し、うま味を作る。</p>
+      <p>実際の醤油造りでは、麹菌に加えて<strong>乳酸菌</strong>と<strong>酵母</strong>も働いている。</p>
+    </div></details>
+  </div></div></div>
+</section>
+
+<!-- ============ L7 ============ -->
+<section id="l7">
+  <div class="sec-head">
+    <p class="sec-kicker">LECTURE 07</p>
+    <h2>遺伝・染色体・DNAの構造と複製・テロメア</h2>
+    <p class="sec-topics">血液型／相補的塩基対／半保存的複製／DNAポリメラーゼ</p>
+  </div>
+
+  <h3>練習問題</h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">1</span>メンデルの「優性の法則」「分離の法則」を、ヒトの血液型の遺伝を例に説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>前提：血液型を決める遺伝子は<strong>A・B・O の3種類</strong>。各個体は<strong>2個（1対）</strong>を持ち、その組み合わせで血液型（形質）が決まる。<code>AA・AO＝A型／BB・BO＝B型／AB＝AB型／OO＝O型</code></p>
+      <p><strong>優性（顕性）の法則</strong>：対立する遺伝子が対になったとき、<strong>一方の形質だけが現れる</strong>。血液型では<strong>AはOに対して優性</strong>なので、遺伝子型<strong>AO</strong>の人は<strong>A型</strong>になり、O型の形質は隠れる（Oは劣性＝潜性）。</p>
+      <p><strong>分離の法則</strong>：対になった2個の遺伝子は、<strong>配偶子（精子・卵）を作る減数分裂のときに分かれて別々の配偶子に入る</strong>。子は両親から<strong>1個ずつ</strong>遺伝子を受け取る。例：AO の親からは A を持つ配偶子と O を持つ配偶子が1:1でできる。</p>
+      <span class="tip"><b>補足</b> AとBの間には優劣がなく、両方の形質が出る（<strong>共優性</strong>）ため AB型になる。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">2</span>あなた（A型とする）とB型の異性との間に子供が生まれた場合、その子供の血液型を予想せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>A型の遺伝子型は <strong>AA</strong> か <strong>AO</strong>、B型は <strong>BB</strong> か <strong>BO</strong> の可能性がある。最も可能性が広い <strong>AO × BO</strong> の場合、子は次の4通りが等確率で生じる：</p>
+      <span class="seq"><code>AB（AB型） / AO（A型） / BO（B型） / OO（O型）</code></span>
+      <p>したがって<strong>A型・B型・AB型・O型のすべてが生まれうる</strong>（AO×BOなら各1/4）。</p>
+      <span class="tip"><b>答案の書き方</b> 「両親の遺伝子型で場合分けする」ことを示すのが得点源。AA×BBなら子は全員AB型、というように条件を明示して書く。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">3</span>デオキシヌクレオチドを構成する3つの成分を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>リン酸</strong>、<strong>糖（デオキシリボース）</strong>、<strong>塩基（A・T・G・C のいずれか）</strong>。</p>
+      <span class="tip"><b>小テストで出題済み</b> RNAの場合はリボース＋塩基（A・U・G・C）＋リン酸。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">4</span>DNAを構成する塩基4種類と、相補的塩基対、およびその塩基対における水素結合の数を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>塩基：<strong>アデニン(A)・チミン(T)・グアニン(G)・シトシン(C)</strong></p>
+      <ul>
+        <li><strong>A – T</strong>：水素結合 <strong>2本</strong></li>
+        <li><strong>G – C</strong>：水素結合 <strong>3本</strong></li>
+      </ul>
+      <span class="tip"><b>G–Cが3本＝結合が強い</b> だからGC含量が高いDNAほど熱で解離しにくい。PCRの熱変性(94℃)の話にもつながる。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">5</span>テロメアの染色体上の位置と、その機能を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>位置：<strong>染色体（線状DNA）の両末端</strong>。TTGGGG のような数塩基の<strong>反復配列</strong>。</p>
+      <p>機能：DNA複製ではラギング鎖の5'末端がプライマーの分だけ複製できず、<strong>複製のたびにDNAが短くなる</strong>。テロメアがあることで、短くなるのが末端の無意味な反復配列部分だけで済み、<strong>内部の遺伝子が失われるのを防ぐ（DNAを保護する）</strong>。</p>
+      <span class="tip"><b>寿命との関係</b> 体細胞はテロメラーゼ活性が低く、約50回分裂するとテロメアが尽きて細胞は死ぬ（＝体細胞の寿命の限度）。一方、生殖細胞では<strong>テロメラーゼ</strong>がテロメアを伸長するので、次世代では長さが戻る。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">6</span>次のDNAの構造を、下線部に塩基を入れて完成せよ。<span class="seq"><code>5'-ATTGCTACCTGACCT-3'
+3'-TAA____________-5'</code></span></p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>相補的塩基対（A–T、G–C）に従って埋める：</p>
+      <span class="seq"><code>5'-A T T G C T A C C T G A C C T-3'
+3'-T A A C G A T G G A C T G G A-5'</code></span>
+      <p>答え（下線部）：<strong>3'-TAACGATGGACTGGA-5'</strong></p>
+      <span class="tip"><b>ミスしやすい</b> 上の鎖を1文字ずつ対応させて書くこと。焦って一気に書くとズレる。書き終わったらA↔T、G↔Cで検算を。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">7</span>DNAが多量の情報を保持できる理由を、その分子構造から説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>DNAは<strong>A・T・G・C の4種類の塩基</strong>が、非常に長い鎖に<strong>任意の順序で並んだ</strong>分子である。塩基配列は「4文字で書かれた文章」と同じで、n塩基の配列には<strong>4のn乗通り</strong>の可能性がある。DNAは極めて長い（ヒトで約58億塩基対、伸ばすと1メートル）ため、天文学的な情報量を塩基配列として保持できる。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">8</span>DNAが塩基配列を自己複製できる理由を、その分子構造から説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>DNAは<strong>2本鎖</strong>で、<strong>A–T、G–C という相補的塩基対</strong>の規則で結合している。したがって<strong>一方の鎖の塩基配列が決まれば、もう一方の鎖の配列は自動的に決まる</strong>。2本鎖がほどけて1本鎖になると、それを鋳型として相補的なヌクレオチドが並び、結合することで、元と同じ配列の2本鎖DNAが2組できる。この構造こそが自己複製を可能にしている。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">9</span>DNAの複製にはたらくDNA合成酵素のはたらきと特徴を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>DNA合成酵素（DNAポリメラーゼ）</strong>は、デオキシリボヌクレオチド三リン酸（A・T・G・C）を<strong>リン酸ジエステル結合</strong>でつないでDNA鎖を合成する。特徴は3つ：</p>
+      <ul>
+        <li>① <strong>DNAの片方の鎖を鋳型にして</strong>、相補的塩基対の規則に従って合成する</li>
+        <li>② 新しい鎖は必ず <strong>5'→3' の方向にのみ</strong>合成する</li>
+        <li>③ 最初に<strong>プライマー（DNAまたはRNAの短い種）を必要とし</strong>、そのプライマーの<strong>3'末端を伸長する</strong>形でしか合成できない</li>
+      </ul>
+      <span class="tip"><b>この3つがそのままPCRの原理</b> 第11回で「PCRに必要なもの」を答えるとき、プライマーが必要な理由がここにある。テロメアが短くなる理由（③のせい）にも直結。<strong>この回で一番重要</strong>。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">10</span>DNA複製（半保存的複製）の基盤となる3つの規則を述べよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>上の問9のDNA合成酵素の3つの性質がそのまま答えになる：</p>
+      <ul>
+        <li>① DNAの<strong>片方の鎖を鋳型</strong>とし、<strong>相補的塩基対（A–T、G–C）</strong>に従って合成される</li>
+        <li>② 新しい鎖は <strong>5'→3'方向</strong>にのみ合成される</li>
+        <li>③ 合成には<strong>プライマー</strong>が必要で、その<strong>3'末端が伸長される</strong></li>
+      </ul>
+      <p>その結果、新しくできた2本の2本鎖DNAは<strong>どちらも片方の鎖が元のDNA由来</strong>となる。これを<strong>半保存的複製</strong>という。</p>
+      <span class="tip"><b>関連する酵素も言えると満点</b> DNA巻き戻し酵素（2本鎖をほどく）、プライマー合成酵素、DNA合成酵素、DNA連結酵素（リガーゼ）、校正酵素。連続合成される側が<strong>リーディング鎖</strong>、細切れに合成される側が<strong>ラギング鎖</strong>。</span>
+    </div></details>
+  </div></div></div>
+</section>
+
+<!-- ============ L8 ============ -->
+<section id="l8">
+  <div class="sec-head">
+    <p class="sec-kicker">LECTURE 08</p>
+    <h2>生殖・分化全能性・iPS細胞・クローン生物</h2>
+    <p class="sec-topics">体細胞分裂と減数分裂／ドリー／iPS／クローン植物</p>
+  </div>
+
+  <h3>練習問題</h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">1</span>体細胞（有糸）分裂と減数分裂の違いを述べよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>体細胞分裂</strong>：普通の細胞の分裂。染色体が複製され、<strong>1回分裂</strong>して<strong>2個</strong>の娘細胞ができる。染色体数は<strong>元と同じ（2n→2n）</strong>。個体の成長や無性生殖に使われる。</p>
+      <p><strong>減数分裂</strong>：生殖細胞（精子・卵）を作るときに生殖巣で起こる分裂。染色体が複製された後、<strong>連続して2回分裂</strong>し、<strong>4個</strong>の細胞ができる。染色体数は<strong>半分になる（2n→n）</strong>。受精で卵と精子が合体すると再び2nに戻る。</p>
+      <span class="tip"><b>意義も添える</b> 減数分裂と受精により、子は両親と異なる遺伝子の組み合わせを持つ（＝多様性）。ヒトは2n=46、配偶子はn=23。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">2</span>クローン羊ドリーの作成法を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>1997年、<strong>核移植</strong>による哺乳類初のクローン。手順：</p>
+      <ul>
+        <li>① 成体の雌羊から<strong>乳腺細胞（体細胞）</strong>を取り出して培養する</li>
+        <li>② 別の羊の<strong>卵から核を除く（除核）</strong></li>
+        <li>③ 除核した卵に<strong>乳腺細胞の核を移植</strong>する</li>
+        <li>④ 発生させ、胚盤胞期に<strong>代理母の子宮に移植</strong>する</li>
+        <li>⑤ 生まれた子羊は、核を取った羊と<strong>同じ遺伝子を持つクローン</strong>である</li>
+      </ul>
+      <span class="tip"><b>この実験が証明したこと</b> 分化した体細胞の核にも、<strong>個体を作るのに必要な遺伝子が全てそろっている</strong>（発生の途中で遺伝子が失われるわけではない）。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">3</span>ヒトのクローンの例をあげよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>一卵性双生児</strong>。1個の受精卵が発生の初期に2つに分かれて（<strong>胚の分割</strong>）別々の個体になったもので、<strong>まったく同じ遺伝子を持つ</strong>＝クローン。</p>
+      <span class="tip"><b>クローンの作り方は2タイプ</b> ①胚の分割（一卵性双生児、ウニの実験）②核移植（カエル、ドリー）。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">4</span>iPS細胞の特徴を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>iPS細胞＝人工多能性幹細胞（induced pluripotent stem cell）</strong>。</p>
+      <ul>
+        <li>皮膚の線維芽細胞など<strong>分化した体細胞</strong>に、<strong>4種類の遺伝子</strong>（Oct3/4、Sox2、c-Myc、Klf4）を導入して<strong>初期化（リプログラミング）</strong>し、受精卵に近い状態に戻したもの</li>
+        <li><strong>分化多能（万能）性</strong>を持ち、体のさまざまな細胞に分化できる</li>
+        <li>ほぼ無限に増殖できる</li>
+        <li>ES細胞と違い<strong>受精卵（胚）を壊す必要がない</strong>ので倫理的問題が小さく、<strong>患者本人の細胞から作れば移植時の拒絶反応が起きにくい</strong></li>
+        <li>2006年に山中伸弥がマウスで、2007年にヒトで作製に成功、2012年ノーベル賞</li>
+      </ul>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">5</span>分化多能（万能）性と分化全能性の違いを説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>分化多能（万能）性 pluripotency</strong>：さまざまな<strong>種類の細胞</strong>に分化する能力はあるが、<strong>1個から完全な個体を作ることはできない</strong>。例：ES細胞、iPS細胞。</p>
+      <p><strong>分化全能性 totipotency</strong>：1個の細胞から<strong>完全な個体を丸ごと再生できる</strong>能力。例：受精卵、<strong>植物の体細胞</strong>（1つの細胞からカルスを経て植物体を再生できる）。</p>
+      <span class="tip"><b>一言で</b> 「多能性＝いろんな細胞になれる」「全能性＝個体まるごとになれる」。植物は分化した細胞でも全能性を持つのが大きな特徴（第13回の主題）。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">6</span>クローン植物の例を一つあげ、その増殖法を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>例と増殖法（どれか1つ書ければよい）：</p>
+      <ul>
+        <li><strong>イチゴ</strong>：<strong>ランナー（匍匐茎）</strong>で増える</li>
+        <li><strong>ジャガイモ</strong>：<strong>塊茎（イモ）</strong>から発芽して増える</li>
+        <li><strong>サクラ（ソメイヨシノ）・ブドウ・リンゴ</strong>：<strong>接ぎ木</strong></li>
+        <li><strong>トマト・サツマイモ</strong>：<strong>挿し木</strong></li>
+        <li><strong>ラン・バナナ</strong>：<strong>組織培養（メリクロン苗）</strong></li>
+        <li><strong>チューリップ</strong>：<strong>球根</strong></li>
+      </ul>
+      <p>いずれも<strong>無性生殖（栄養繁殖）</strong>なので、親と遺伝的に同一なクローンになる。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">7</span>「トウモロコシの苗」「大根の苗」「イチゴの苗」のうち無性生殖で増殖させた苗を選び、その方法を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>イチゴの苗</strong>。イチゴは<strong>ランナー（匍匐茎）</strong>という地表を這う茎を伸ばし、その先に子株をつくる。この子株を切り離して苗にする＝<strong>無性生殖（栄養繁殖）</strong>なので、親と遺伝的に同一（クローン）。</p>
+      <p>トウモロコシと大根は<strong>種子（有性生殖）</strong>から育てる苗なので、親とは遺伝的に異なる。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">8</span>ソメイヨシノの複数の木が春に同時に開花する遺伝的な理由を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>ソメイヨシノは種子ではなく<strong>接ぎ木（挿し木）</strong>という<strong>無性生殖</strong>で増やされてきた<strong>クローン</strong>であり、全国のソメイヨシノは<strong>すべて遺伝的に同一</strong>である。したがって開花のタイミングを決める遺伝子も同じで、同じ気象条件下では<strong>一斉に同時に開花する</strong>。</p>
+    </div></details>
+  </div></div></div>
+</section>
+
+<!-- ============ L9 ============ -->
+<section id="l9">
+  <div class="sec-head">
+    <p class="sec-kicker">LECTURE 09</p>
+    <h2>遺伝子発現・セントラルドグマ</h2>
+    <p class="sec-topics">転写と翻訳／3種類のRNA／コドン／ホメオティック変異</p>
+  </div>
+
+  <h3>練習問題</h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">1</span>生物学における転写(transcription)および翻訳(translation)とは、具体的にどのような反応を指す用語か答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>転写</strong>：<strong>DNAを鋳型としてRNAを合成する</strong>反応。RNA合成酵素（RNAポリメラーゼ）が、相補的塩基対の規則（A→U、T→A、G→C、C→G）に従ってリボヌクレオチドをつなぐ。<strong>核</strong>で起こる。</p>
+      <p><strong>翻訳</strong>：<strong>mRNAの塩基配列をもとにタンパク質（アミノ酸配列）を合成する</strong>反応。3塩基（コドン）が1つのアミノ酸を指定する。<strong>リボソーム（細胞質）</strong>で起こる。</p>
+      <span class="tip"><b>セントラルドグマ</b> <code>DNA →〈転写〉→ RNA →〈翻訳〉→ タンパク質</code>。この流れは全生物に共通。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">2</span>生物における主要な3つのRNAの名称と、それぞれの生体内での機能を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <ul>
+        <li><strong>mRNA（伝令RNA）</strong>：DNAの遺伝情報を写し取り、<strong>タンパク質のアミノ酸配列の情報をリボソームまで運ぶ</strong>。コドンを含むコード領域を持つ。</li>
+        <li><strong>rRNA（リボソームRNA）</strong>：タンパク質と複合体をつくり<strong>リボソームを構成</strong>する。ペプチド結合を作る<strong>酵素作用（リボザイム）</strong>を持つ。</li>
+        <li><strong>tRNA（運搬RNA）</strong>：<strong>アミノ酸に結合してリボソームまで運ぶ</strong>。<strong>アンチコドン</strong>を持ち、mRNAのコドンと相補的に結合することで<strong>コドンとアミノ酸を対応づける（遺伝暗号の解読）</strong>。</li>
+      </ul>
+      <span class="tip"><b>小テストで出題済み</b> 3つセットで丸暗記。「mRNA＝設計図、tRNA＝運び屋、rRNA＝工場」で覚える。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">3</span>タンパク質合成が始まるコドン（開始コドン）と、そのコドンが指令するアミノ酸を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>開始コドン＝<strong>AUG</strong>。指定するアミノ酸＝<strong>メチオニン（Met）</strong>。</p>
+      <p>mRNAの5'側から見て最初に現れるAUGが開始コドンとなり、すべてのタンパク質のN末端はメチオニンから始まる。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">4</span>コドン表を参考に、ロイシン(Leu)を指定するコドンを全て答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>UUA、UUG、CUU、CUC、CUA、CUG</strong>（<strong>6個</strong>）</p>
+      <span class="tip"><b>試験ではコドン表が配られる可能性が高い</b> 表の読み方を確認しておくこと（1文字目＝縦、2文字目＝横、3文字目＝右端）。同じく6個あるのはアルギニン(CGU/CGC/CGA/CGG/AGA/AGG)とセリン。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">5</span>タンパク質合成の終了を指定するコドンを3つ答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>UAA、UAG、UGA</strong>（終止コドン）。アミノ酸を指定せず、ここで<strong>終結因子</strong>が結合してタンパク質がtRNAから切り離され、翻訳が終わる。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">6</span>RNAの分子構造の特徴と性質を、DNAと比較しながら説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <ul>
+        <li><strong>糖</strong>：RNAは<strong>リボース</strong>、DNAはデオキシリボース</li>
+        <li><strong>塩基</strong>：RNAは <strong>A・U・G・C</strong>（チミンTの代わりに<strong>ウラシルU</strong>）、DNAは A・T・G・C</li>
+        <li><strong>鎖</strong>：RNAは<strong>1本鎖</strong>、DNAは2本鎖（二重らせん）</li>
+        <li><strong>長さ</strong>：RNAは数十〜1万塩基（平均約1000）で<strong>DNAより短い</strong></li>
+      </ul>
+      <p>性質：1本鎖なので<strong>折りたたまれて複雑な立体構造をとることができ</strong>、なかには酵素活性を持つもの（<strong>リボザイム</strong>）もある。また相補的塩基対によって<strong>1本鎖DNAに結合できる</strong>。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">7</span>次のmRNAからどのようなアミノ酸配列が合成されるか。下線部に適切なアミノ酸を書け。<span class="seq"><code>5'---CACCAUAUGUGGACCUGUAUUUAGCCUUGGCCC-3'
+N---His His Met ______________ -C</code></span></p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>3塩基ずつ区切って読む：</p>
+      <span class="seq"><code>CAC CAU AUG UGG ACC UGU AUU UAG …
+His His Met Trp Thr Cys Ile 終止</code></span>
+      <p>答え（下線部）：<strong>Trp（トリプトファン）－ Thr（トレオニン）－ Cys（システイン）－ Ile（イソロイシン）</strong>、そこで <strong>UAG＝終止コドン</strong>となり翻訳が終わる。<strong>UAG以降（CCUUGGCCC）は翻訳されない</strong>。</p>
+      <span class="tip"><b>本番の手順</b> ①与えられたHis His Metで区切り位置を確認 → ②以降を3塩基ずつスラッシュで区切る → ③コドン表で引く → ④終止コドンが出たらそこで止める。終止コドンを見落として最後まで訳してしまうのが最大のミス。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">8</span>ホメオティック変異とはどのような変異か説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>ある器官が、別の器官に置き換わってしまう突然変異</strong>。体の各部分で「どの器官を作るか」を決めている<strong>転写調節因子（ホメオティック遺伝子／ホメオドメインを持つタンパク質）</strong>に変異が起こることで生じる。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">9</span>ショウジョウバエのアンテナペディア突然変異は、どのような表現型か説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>本来<strong>触角</strong>ができるはずの場所に、代わりに<strong>脚（中肢）</strong>が生えてしまう。ホメオティック変異の代表例。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">10</span>基本転写因子とRNAポリメラーゼが結合し転写が開始されるDNA上の配列を何と呼ぶか答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>プロモーター（プロモータ配列）</strong>。約100塩基対で、<strong>転写開始点と転写の方向</strong>を決める。</p>
+      <span class="tip"><b>3点セットで</b> <strong>プロモーター</strong>＝転写の開始点／<strong>ターミネーター</strong>＝転写の終了点（RNA合成酵素が離れる）／<strong>エンハンサー</strong>＝転写の場所・時期・量を調節（転写調節因子が結合）。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">11</span>一重咲きの花と比べて八重咲の花の特徴を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>八重咲きは<strong>植物のホメオティック変異</strong>で、本来<strong>おしべ・めしべになるはずの器官が花弁（花びら）やがくに変化</strong>している。そのため<strong>花弁が非常に多い</strong>が、生殖器官が失われているため<strong>種子ができにくい（結実しにくい）</strong>。一重咲きが野生型で、八重咲きが突然変異体。</p>
+    </div></details>
+  </div></div></div>
+</section>
+
+<!-- ============ L10 ============ -->
+<section id="l10">
+  <div class="sec-head">
+    <p class="sec-kicker">LECTURE 10</p>
+    <h2>遺伝子工学・遺伝子クローニング</h2>
+    <p class="sec-topics">プラスミド／制限酵素とリガーゼ／形質転換／逆転写酵素</p>
+  </div>
+
+  <h3>練習問題</h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">1</span>遺伝子クローニングに使用する生物（細菌）と小型環状DNAの名称を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>細菌＝<strong>大腸菌（<em>Escherichia coli</em>）</strong>、小型環状DNA＝<strong>プラスミド</strong>。</p>
+      <p>プラスミドはゲノムDNAとは独立に複製する環状2本鎖DNAで、外来遺伝子を運ぶ<strong>ベクター</strong>として使われる。抗生物質耐性遺伝子・複製起点・マルチクローニングサイトを持つ。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">2</span>形質転換された大腸菌のみを選抜するために培地に添加する物質と、その培地で大腸菌が生育できる仕組みを答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>添加する物質＝<strong>抗生物質（アンピシリン）</strong>。</p>
+      <p>仕組み：使用するプラスミドには<strong>抗生物質耐性遺伝子（アンピシリン耐性遺伝子）</strong>が組み込まれている。プラスミドが導入された（＝<strong>形質転換された</strong>）大腸菌だけがこの耐性遺伝子を発現して抗生物質を分解できるため、アンピシリン入りの培地でも<strong>生育してコロニーを作れる</strong>。プラスミドが入らなかった大腸菌は抗生物質で死滅する。結果として、目的の遺伝子を持つ大腸菌だけを選抜できる。</p>
+      <span class="tip"><b>植物版もある</b> 第13回では、植物の形質転換体を選ぶのに<strong>カナマイシン耐性遺伝子</strong>を選抜マーカーとして使う。同じ理屈。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">3</span>特定の6塩基対の塩基配列でDNAを切断する酵素の名称を答えよ。また、この配列の特徴を述べよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>酵素＝<strong>制限酵素</strong>（DNAを切る「ハサミ」）。</p>
+      <p>配列の特徴：<strong>回文配列（パリンドローム）</strong>である。つまり、2本鎖DNAの<strong>両方の鎖を5'→3'方向に読むと同じ配列</strong>になる。例：<code>5'-GAATTC-3' / 3'-CTTAAG-5'</code>（EcoRI）。切断すると<strong>突出末端（粘着末端／“糊しろ”）</strong>または平滑末端ができ、同じ制限酵素で切った断片どうしは相補的に結合できる。</p>
+      <span class="tip"><b>酵素名の由来</b> 由来する細菌の学名から付けられる（EcoRI＝<em>Escherichia coli</em>）。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">4</span>DNAとDNAを連結する酵素の名称を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>DNAリガーゼ（DNA連結酵素）</strong>。DNAの「のり（接着剤）」。制限酵素で切った断片どうしをリン酸ジエステル結合でつなぎ、<strong>組換えDNA分子</strong>を完成させる。</p>
+      <span class="tip"><b>ペアで覚える</b> 制限酵素＝ハサミ／リガーゼ＝のり。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">5</span>アガロース電気泳動でDNAを可視化するために加える物質の名称を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>エチジウムブロマイド（EtBr）</strong>。2本鎖DNAの塩基の間に入り込んで結合し、<strong>紫外線を照射するとオレンジ色に蛍光</strong>する。</p>
+      <span class="tip"><b>泳動の原理も</b> DNAは<strong>負に帯電</strong>しているので<strong>マイナス極からプラス極へ移動</strong>する。<strong>小さい（短い）DNAほど速く、大きい（長い）DNAほど遅く</strong>泳動される。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">6</span>RNAを鋳型にDNAを合成する酵素の名称を答えよ。また、この酵素の遺伝子が由来するウイルス名を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>酵素＝<strong>逆転写酵素（リバーストランスクリプターゼ）</strong>。mRNAを鋳型として<strong>cDNA</strong>を合成する。</p>
+      <p>由来＝<strong>レトロウイルス</strong>（代表例：<strong>HIV</strong>）。</p>
+      <span class="tip"><b>「逆」の意味</b> セントラルドグマは DNA→RNA だが、この酵素はRNA→DNAと逆向きに情報を流すので「逆転写」。コロナのPCR検査（RT-PCR）でも最初にこの酵素を使う。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">7</span>真核生物のmRNA前駆体がスプライシングされる時、除かれる領域とmRNAになる領域の名称をそれぞれ答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>除かれる領域＝<strong>イントロン</strong>。残ってmRNAになる領域＝<strong>エキソン</strong>。</p>
+      <span class="tip"><b>なぜ大事か</b> 大腸菌（原核生物）は<strong>スプライシング能力がない＝イントロンを除去できない</strong>。だからヒトの遺伝子を大腸菌で発現させるときは、ゲノムDNAではなく<strong>成熟mRNAから作ったcDNA</strong>を使う（第12回問2に直結）。</span>
+    </div></details>
+  </div></div></div>
+</section>
+
+<!-- ============ L11 ============ -->
+<section id="l11">
+  <div class="sec-head">
+    <p class="sec-kicker">LECTURE 11</p>
+    <h2>PCR検査</h2>
+    <p class="sec-topics">熱変性・アニーリング・伸長／Taqポリメラーゼ／DNA鑑定</p>
+  </div>
+
+  <h3>練習問題</h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">1</span>PCRは略称である。正式名を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>Polymerase Chain Reaction（ポリメラーゼ連鎖反応）</strong>。試験管内で特定のDNA領域を大量に増幅する反応。1983年 Kary Mullis が発表、1993年ノーベル賞。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">2</span>鋳型DNAとDNAポリメラーゼの他に、PCR反応に必要な物質を2つ答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <ul>
+        <li><strong>プライマー</strong>（増幅したい領域の両端に相補的な、20塩基程度の1本鎖DNA。フォワードとリバースの2種類）</li>
+        <li><strong>4種類のデオキシヌクレオチド三リン酸（dNTP：dATP・dCTP・dGTP・dTTP）</strong> — 新しいDNA鎖の材料</li>
+      </ul>
+      <span class="tip"><b>プライマーが要る理由</b> DNAポリメラーゼは<strong>プライマーの3'末端を伸長する形でしか合成できない</strong>から（第7回問9の性質③）。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">3</span>PCR法に使用されるDNAポリメラーゼの酵素的な特徴を述べよ。また、この酵素はどのような生物に由来するか答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>特徴：<strong>耐熱性である</strong>（<strong>Taq DNAポリメラーゼ</strong>）。PCRでは2本鎖DNAを1本鎖にするために毎サイクル<strong>94℃</strong>まで加熱するが、普通の酵素はタンパク質なので熱変性して壊れてしまう。Taqポリメラーゼは<strong>90℃以上の高温でも安定で失活しない</strong>ため、酵素を継ぎ足さずに反応を何十サイクルも繰り返せる。</p>
+      <p>由来：<strong>好熱菌（<em>Thermus aquaticus</em>）</strong>。イエローストーン国立公園の高温の温泉から発見された細菌で、至適増殖温度は70〜72℃。</p>
+      <span class="tip"><b>この問題は「なぜ耐熱性が必要か」まで書くと満点</b>。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">4</span>新型コロナウイルスの検査以外に、PCR法が用いられる検査を1つあげよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>どれか1つ書ければよい：</p>
+      <ul>
+        <li><strong>DNA鑑定</strong>（犯罪捜査の個人識別、親子鑑定）</li>
+        <li><strong>お酒に強いか弱いかの判定</strong>（<strong>ALDH2＝アルデヒド脱水素酵素</strong>遺伝子の一塩基多型を調べる）</li>
+        <li><strong>遺伝子検査</strong>（鎌状赤血球症などの遺伝病の診断、肥満しやすい遺伝子＝β3アドレナリン受容体遺伝子多型）</li>
+        <li>その他の感染症の病原体検出、<strong>牛の性別判定</strong></li>
+      </ul>
+    </div></details>
+  </div></div></div>
+
+  <h3>知っておくと安全 — PCRの3ステップ</h3>
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">+</span>PCRの3つのステップと温度、増幅のされ方を説明できるか？</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <ul>
+        <li>① <strong>熱変性（94℃）</strong>：2本鎖DNAの水素結合を切り、1本鎖にする</li>
+        <li>② <strong>アニーリング（56℃）</strong>：プライマーが鋳型DNAの相補的な位置に結合する</li>
+        <li>③ <strong>伸長・DNA合成（72℃）</strong>：耐熱性DNAポリメラーゼがプライマーの3'末端からDNAを合成する</li>
+      </ul>
+      <p>この3ステップを1サイクルとして繰り返すと、DNAは<strong>1サイクルごとに2倍</strong>になる。n回繰り返すと<strong>2ⁿ倍</strong>に増幅される。</p>
+      <span class="tip"><b>コロナ検査がRT-PCRである理由</b> 新型コロナは<strong>RNAウイルス</strong>なので、まず<strong>逆転写酵素でRNAからcDNA（DNA）を合成してから</strong>PCRを行う。これを<strong>RT-PCR</strong>という。</span>
+    </div></details>
+  </div></div></div>
+</section>
+
+<!-- ============ L12 ============ -->
+<section id="l12">
+  <div class="sec-head">
+    <p class="sec-kicker">LECTURE 12</p>
+    <h2>遺伝子組換え生物（GMO）</h2>
+    <p class="sec-topics">インシュリン／GFP／遺伝子治療／ゲノム編集との違い</p>
+  </div>
+
+  <h3>練習問題</h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">1</span>遺伝子組換え細菌により生産された医薬品を答えよ。また、この医薬品が使用される病名を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>医薬品＝<strong>インシュリン（インスリン）</strong>、病名＝<strong>糖尿病</strong>。</p>
+      <p>ヒトのインシュリン遺伝子を大腸菌に導入して大量生産する。1970年代までは患者1人あたり年間<strong>ブタ50匹分の膵臓</strong>が必要だったが、1980年に組換え型インシュリンがヒトに投与され、安定供給とアレルギーの低減が実現した。</p>
+      <p>他の例：<strong>インターフェロン</strong>、<strong>成長ホルモン</strong>（低身長症）、<strong>アンチトロンビン</strong>（血友病）、レプチン、各種抗体。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">2</span>大腸菌でヒトの遺伝子を発現させる場合、DNAではなくmRNAからcDNAを作成する理由を答えよ。また、使用される酵素名を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>理由：真核生物であるヒトの遺伝子（ゲノムDNA）には<strong>イントロン</strong>が含まれており、本来は転写後に<strong>スプライシング</strong>で除去される。しかし<strong>大腸菌（原核生物）はスプライシング能力を持たないためイントロンを除去できず</strong>、そのままではまともなタンパク質を作れない。そこで、すでにイントロンが除かれた<strong>成熟mRNA</strong>を鋳型に<strong>cDNA（エキソンだけからなるDNA）</strong>を合成して導入する。</p>
+      <p>使用される酵素＝<strong>逆転写酵素</strong>。</p>
+      <span class="tip"><b>この問題は頻出中の頻出</b> 「イントロン」「スプライシングできない」「逆転写酵素」の3語が入っていれば取れる。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">3</span>遺伝子組換え生物とゲノム編集生物の違いを説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>遺伝子組換え生物（GMO）</strong>：<strong>他の生物の遺伝子（外来遺伝子）を導入して</strong>、その生物が本来持たない新しい形質を持たせたもの。ゲノムに<strong>外来のDNAが残る</strong>。例：BT遺伝子を入れた害虫耐性トウモロコシ、青いバラ。</p>
+      <p><strong>ゲノム編集生物</strong>：CRISPR/Cas9などの技術で、<strong>その生物が元々持っている遺伝子の狙った場所を切断・破壊（欠失）する</strong>もの。外来遺伝子を入れずに済み（欠失型の場合）、<strong>自然に起こる突然変異と同じ結果</strong>になる。例：<strong>GABA高蓄積トマト</strong>（GABA合成を抑えている部分を除去）、<strong>可食部増量マダイ（肉厚真鯛）</strong>。</p>
+      <span class="tip"><b>一言でいうと</b> 組換え＝「外から遺伝子を足す」／ゲノム編集（欠失型）＝「元からある遺伝子を壊す」。だから規制上の扱いも異なる。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">4</span>緑色蛍光タンパク質(GFP)をもともと持っている生物名を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>オワンクラゲ</strong>（クラゲ）。下村脩博士が発見し、<strong>2008年ノーベル化学賞</strong>。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">5</span>緑色蛍光タンパク質(GFP)の利用法を説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>GFPは紫外線・青色光を当てると<strong>緑色に光る</strong>タンパク質。GFP遺伝子を目的の遺伝子につないで細胞に導入することで、</p>
+      <ul>
+        <li>その遺伝子が<strong>いつ・どこ（どの組織・細胞）で発現しているか</strong>を、生きたまま光で目に見える形で追跡できる（<strong>マーカー・目印</strong>としての利用）</li>
+        <li>目的のタンパク質がどこに局在し、どう動くかを可視化できる</li>
+        <li>遺伝子が導入された細胞・個体を選別する<strong>指標</strong>になる</li>
+      </ul>
+      <p>例：GFPを発現させたショウジョウバエ、メダカ、ブタ、タバコ、シロイヌナズナ。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">6</span>パーキンソン病の治療薬として最近承認された製品「アムシェプリ」の作成に使われた細胞を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>iPS細胞（人工多能性幹細胞）</strong>。</p>
+      <p>京都大学iPS細胞研究財団がストックする第三者のiPS細胞から、<strong>ドーパミンを作る神経のもとになる細胞</strong>に分化させ、患者の脳に移植する。住友ファーマが開発し、2026年3月に厚労相が承認（iPS細胞製品として世界初の実用化）。</p>
+      <span class="tip"><b>ニュース系の問題</b> 同時に承認されたもう1つは重い心不全治療の「リハート」（クオリプス）。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">7</span>筋肉タイをゲノム編集で作出する際に参考にされた、自然に生じた突然変異体が筋肉隆々の家畜は何か答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>ウシ（ベルジャン・ブルー／ベルギー青牛）</strong>。</p>
+      <p>この品種は、筋肉の成長を抑えるタンパク質<strong>ミオスタチン</strong>の遺伝子に自然の突然変異が起き、その働きが失われているため筋肉が異常に発達している。この現象を参考に、マダイの<strong>ミオスタチン遺伝子をゲノム編集で破壊</strong>して、可食部が約1.5倍になった「肉厚マダイ（22世紀鯛）」が作出された。</p>
+    </div></details>
+  </div></div></div>
+</section>
+
+<!-- ============ L13 ============ -->
+<section id="l13">
+  <div class="sec-head">
+    <p class="sec-kicker">LECTURE 13</p>
+    <h2>植物バイオテクノロジー・ゲノム編集</h2>
+    <p class="sec-topics">分化全能性／カルス／プロトプラスト／アグロバクテリウム</p>
+  </div>
+
+  <h3>練習問題</h3>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">1</span>植物が持つ分化全能性について簡潔に説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>植物は、<strong>一度分化した細胞であっても、未分化の状態に戻り（脱分化してカルスになり）、再び分化して完全な個体を再生できる</strong>能力を持つ。つまり<strong>たった1個の体細胞から1個体をまるごと作ることができる</strong>。これを分化全能性（totipotency）という。</p>
+      <span class="tip"><b>動物との対比が答案の核</b> 動物では受精卵だけが全能性を持ち、分化した体細胞から個体を作るには核移植やiPS細胞の作製が必要。植物はそれが容易にできる。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">2</span>植物組織から得られるプロトプラスト(protoplast)は、どのような特徴を持つ細胞か説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>細胞壁を取り除いた「裸の細胞」</strong>。細胞膜がむき出しになっているため、細胞は<strong>バラバラの球状</strong>になる。</p>
+      <p>細胞壁がないので、<strong>細胞融合させることができる</strong>（異なる植物どうしを融合して雑種細胞を作れる）。またDNAを導入しやすい。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">3</span>プロトプラストを調製する時に用いられる酵素の名称と、その酵素を植物組織に処理した時に起こる反応を答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>酵素＝<strong>セルラーゼ</strong>と<strong>ペクチナーゼ</strong>（細胞壁分解酵素）。</p>
+      <p>起こる反応：セルラーゼが細胞壁の主成分<strong>セルロース</strong>を、ペクチナーゼが細胞どうしを接着している<strong>ペクチン</strong>を分解する。その結果、<strong>細胞壁が取り除かれて細胞がバラバラになり、球状のプロトプラストになる</strong>。</p>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">4</span>遺伝子組換え植物を作成する時に使用される細菌の名称を答えよ。また、この細菌が植物に感染すると植物はどのような病気になるか答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>細菌＝<strong>アグロバクテリウム（<em>Agrobacterium tumefaciens</em>）</strong>。</p>
+      <p>病気＝<strong>根頭がんしゅ病（クラウンゴール、crown gall）</strong>。感染した部位に<strong>こぶ（腫瘍）状の組織</strong>ができる、いわば「植物のガン」。</p>
+      <span class="tip"><b>小テストでそのまま出題済み</b>。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">5</span>植物から誘導されるカルスとは、どのような状態の細胞群か答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>植物の組織片を培養したときにできる、<strong>脱分化して未分化な状態に戻り、細胞分裂が活発になった不定形の細胞のかたまり</strong>。</p>
+      <p>カルスの誘導には植物ホルモンの<strong>オーキシン</strong>と<strong>サイトカイニン</strong>が必要。カルスから条件を変えて<strong>再分化</strong>させると、根・芽ができて完全な植物体になる（＝分化全能性の証明）。</p>
+      <span class="tip"><b>流れで覚える</b> 植物組織 →〈脱分化〉→ <strong>カルス</strong> →〈再分化〉→ 植物体。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">6</span>遺伝子銃（パーティクルガン）により外来遺伝子を導入するしくみを答えよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>金やタングステンの微粒子の表面に、導入したいDNAを付着（コーティング）させ、高圧のガスなどで加速して細胞や組織に物理的に撃ち込む</strong>方法。微粒子が細胞壁・細胞膜を貫通して細胞内に入り、運ばれたDNAが核内で染色体に組み込まれる。</p>
+      <span class="tip"><b>利点</b> アグロバクテリウムが感染しにくい植物（イネ・トウモロコシなどの単子葉植物）にも使える、生物種を選ばない物理的な導入法。</span>
+    </div></details>
+  </div></div></div>
+
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">7</span>アグロバクテリウムにより植物に遺伝子を導入するしくみを説明せよ。</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p>アグロバクテリウムは<strong>Tiプラスミド</strong>という環状DNAを持ち、植物に感染すると<strong>Tiプラスミドの一部（T-DNA領域）を植物細胞に送り込み、植物の染色体DNAに組み込む</strong>という性質を本来持っている（この働きで根頭がんしゅ病＝こぶを作らせる）。</p>
+      <p>遺伝子組換えではこの性質を利用する：</p>
+      <ul>
+        <li>① 病気を起こす遺伝子を取り除いたTiプラスミドの<strong>T-DNA領域に、導入したい外来遺伝子（と選抜マーカーのカナマイシン耐性遺伝子）を組み込む</strong></li>
+        <li>② この組換えTiプラスミドをアグロバクテリウムに入れる</li>
+        <li>③ この細菌を植物の<strong>花芽や成長点、組織片に感染</strong>させる</li>
+        <li>④ T-DNAが植物細胞に運ばれ、<strong>植物の染色体に組み込まれる</strong></li>
+        <li>⑤ カナマイシン入りの培地で、遺伝子が入った細胞（形質転換体）だけを選抜し、植物体に再生させる</li>
+      </ul>
+      <span class="tip"><b>大腸菌の場合との対応</b> ベクター：プラスミド ↔ Tiプラスミド。選抜マーカー：アンピシリン耐性 ↔ カナマイシン耐性。構造がまったく同じなので、セットで理解すると両方一気に固まる。</span>
+    </div></details>
+  </div></div></div>
+
+  <h3>おさえておきたい — 細胞融合</h3>
+  <div class="q"><div class="q-top"><input type="checkbox" class="q-check"><div class="q-body">
+    <p class="q-text"><span class="n">+</span>細胞融合とは何か。植物・動物それぞれの応用例は？</p>
+    <details><summary>答えを見る</summary><div class="ans">
+      <p><strong>細胞融合</strong>：異種の細胞を融合させて、両方の性質を持つ雑種細胞を作る技術。<strong>センダイウイルス(HVJ)</strong>、<strong>ポリエチレングリコール(PEG)</strong>、<strong>電気刺激</strong>によって融合させる。</p>
+      <p><strong>植物での応用</strong>（プロトプラストどうしを融合し新品種を作る）：<strong>ポマト</strong>（ポテト＋トマト）、<strong>オレタチ</strong>（オレンジ＋カラタチ）、ハクラン（ハクサイ＋キャベツ）。ただし<strong>近縁種に限られる</strong>。</p>
+      <p><strong>動物での応用</strong>：<strong>モノクローナル抗体</strong>の生産。抗体を作るBリンパ球と、無限に増殖するガン細胞を融合させて<strong>ハイブリドーマ</strong>を作り、単一の抗体を大量生産する。<strong>コロナの治療薬（抗体医薬）や抗原検査キット</strong>に使われている。</p>
+    </div></details>
+  </div></div></div>
+</section>
+
+<footer>
+  <p>資料：第1回〜第13回の講義スライドおよび「練習問題0703」より作成。各問の解答は講義資料の記述に基づいています。<br>
+  「2回目.pdf」は他授業（ビジネスと情報）の資料が混入しており、第2回の解答のみ練習問題とシラバスから補完しています。</p>
+</footer>
+
+</main>
+</div>
+</div>
+
+<script>
+  (function () {
+    var KEY = "bio-exam-progress-v1";
+    var boxes = Array.prototype.slice.call(document.querySelectorAll(".q-check"));
+    var doneEl = document.getElementById("done");
+    var barEl = document.getElementById("bar");
+
+    boxes.forEach(function (b, i) { b.dataset.idx = i; });
+
+    // total count is derived, not hardcoded
+    var totalEls = document.querySelectorAll(".progress-label b");
+    if (totalEls.length) {
+      totalEls[0].innerHTML = '<span id="done">0</span>/' + boxes.length;
+      doneEl = document.getElementById("done");
+    }
+
+    function load() {
+      var saved;
+      try { saved = JSON.parse(localStorage.getItem(KEY) || "[]"); } catch (e) { saved = []; }
+      if (!Array.isArray(saved)) saved = [];
+      saved.forEach(function (i) { if (boxes[i]) boxes[i].checked = true; });
+    }
+    function save() {
+      var on = boxes.filter(function (b) { return b.checked; }).map(function (b) { return Number(b.dataset.idx); });
+      try { localStorage.setItem(KEY, JSON.stringify(on)); } catch (e) {}
+    }
+    function render() {
+      var n = boxes.filter(function (b) { return b.checked; }).length;
+      doneEl.textContent = n;
+      barEl.style.width = (boxes.length ? (n / boxes.length) * 100 : 0) + "%";
+    }
+
+    boxes.forEach(function (b) {
+      b.addEventListener("change", function () { save(); render(); });
+    });
+
+    document.getElementById("reset").addEventListener("click", function () {
+      boxes.forEach(function (b) { b.checked = false; });
+      save(); render();
+    });
+
+    load();
+    render();
+  })();
+</script>
+
+</body>
+</html>
